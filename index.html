@@ -6,153 +6,160 @@
     <title>¡Oye! Quiz de Pasados - Canarias Edition</title>
     <style>
         :root {
-            --amarillo: #FFD700; /* Sol de Canarias */
-            --azul: #005696;     /* Azul Atlántico */
+            --amarillo: #FFD700; /* Gelb der Flagge */
+            --azul-canario: #0097D7; /* Das offizielle "Celeste" / Babyblau */
             --blanco: #FFFFFF;
-            --arena: #FDF5E6;    /* Arena de Maspalomas */
+            --arena: #FDF5E6;
             --exito: #27AE60;
             --error: #C0392B;
-            --gris-elegante: #2C3E50;
+            --gris-dark: #333333;
         }
 
+        /* RESET & BASIC */
+        * { box-sizing: border-box; }
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--arena);
-            color: var(--gris-elegante);
+            color: var(--gris-dark);
             margin: 0;
+            padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
         }
 
+        /* HEADER RESPONSIVE */
         header {
-            background-color: var(--azul);
+            background-color: var(--azul-canario);
             color: var(--blanco);
             width: 100%;
-            padding: 30px 0;
+            padding: 20px 15px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        nav { margin: 25px; }
+        header h1 { margin: 0; font-size: 1.5rem; }
+        header p { margin: 5px 0 0; font-size: 0.9rem; opacity: 0.9; }
+
+        /* NAV & BUTTONS */
+        nav { 
+            display: flex; 
+            gap: 10px; 
+            margin: 15px; 
+            width: 90%; 
+            max-width: 850px;
+        }
 
         button {
-            padding: 14px 28px;
             border: none;
-            border-radius: 30px;
+            border-radius: 12px;
             cursor: pointer;
             font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            margin: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .btn-main { background-color: var(--amarillo); color: var(--gris-elegante); }
-        .btn-sec { background-color: var(--azul); color: white; }
-        button:hover { transform: translateY(-2px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
+        .btn-main { background-color: var(--amarillo); color: #000; flex: 1; padding: 12px; }
+        .btn-sec { background-color: var(--azul-canario); color: white; flex: 1; padding: 12px; }
 
+        /* CONTAINER */
         #game-container, #rules-container {
             background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            width: 95%;
             max-width: 850px;
-            width: 90%;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
         }
 
-        .hidden { display: none; }
-
+        /* QUIZ ELEMENTS */
         .option {
             display: block;
             width: 100%;
             text-align: left;
-            padding: 18px;
-            margin: 12px 0;
-            border: 2px solid #F0F0F0;
+            padding: 16px;
+            margin: 10px 0;
+            border: 2px solid #f0f0f0;
             border-radius: 12px;
-            background: #FBFCFC;
-            font-size: 1.1em;
-            transition: border-color 0.3s;
+            background: #fff;
+            font-size: 1rem;
         }
 
-        .option:hover { border-color: var(--amarillo); background: #FFFDF5; }
-        .correct { background-color: var(--exito) !important; color: white; border-color: var(--exito); }
-        .wrong { background-color: var(--error) !important; color: white; border-color: var(--error); }
+        .correct { background-color: var(--exito) !important; color: white; }
+        .wrong { background-color: var(--error) !important; color: white; }
 
-        table { width: 100%; border-collapse: collapse; margin: 25px 0; font-size: 0.95em; }
-        th, td { border: 1px solid #EEE; padding: 15px; text-align: left; }
-        th { background-color: var(--azul); color: white; text-transform: uppercase; letter-spacing: 1px; }
-        tr:nth-child(even) { background-color: #F9F9F9; }
+        .progress-bar { width: 100%; height: 6px; background: #eee; border-radius: 10px; margin: 15px 0; }
+        #progress { height: 100%; background: var(--amarillo); width: 0%; transition: width 0.3s; }
 
-        .progress-bar { width: 100%; height: 8px; background: #EEE; border-radius: 10px; margin-bottom: 25px; overflow: hidden; }
-        #progress { height: 100%; background: var(--amarillo); width: 0%; transition: width 0.4s ease; }
-        
-        .level-select { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
+        /* TABLES RESPONSIVE */
+        .table-wrapper { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; min-width: 400px; }
+        th, td { border: 1px solid #eee; padding: 10px; font-size: 0.85rem; }
+        th { background: var(--azul-canario); color: white; }
+
+        /* UTILS */
+        .hidden { display: none; }
+        .center { text-align: center; }
+
+        /* MOBILE OPTIMIZATIONS */
+        @media (max-width: 480px) {
+            header h1 { font-size: 1.2rem; }
+            .option { padding: 14px; font-size: 0.95rem; }
+            #game-container { padding: 15px; }
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>🇪🇸 Domina el Pasado</h1>
-    <p>Aprende la diferencia entre <b>era, fue, estaba y estuve</b></p>
+    <h1>🇪🇸 Spanisch Quiz</h1>
+    <p><i>Era, Fue, Estaba, Estuve</i></p>
 </header>
 
 <nav>
-    <button class="btn-main" onclick="showSection('game')">🏠 Start Quiz</button>
-    <button class="btn-sec" onclick="showSection('rules')">📖 Grammatik-Regeln</button>
+    <button class="btn-main" onclick="showSection('game')">Quiz</button>
+    <button class="btn-sec" onclick="showSection('rules')">Regeln</button>
 </nav>
 
 <div id="game-container">
-    <div id="setup">
-        <h2 style="text-align:center">¡Bienvenidos!</h2>
-        <p style="text-align:center">Wähle eine Schwierigkeitsstufe, um zu beginnen:</p>
-        <div class="level-select">
-            <button class="btn-sec" onclick="startQuiz('easy')">🟢 Anfänger</button>
-            <button class="btn-sec" onclick="startQuiz('medium')">🟡 Fortgeschritten</button>
-            <button class="btn-sec" onclick="startQuiz('hard')">🔴 Experte</button>
-        </div>
+    <div id="setup" class="center">
+        <h3>Wähle dein Level</h3>
+        <button class="btn-sec" style="width:100%; margin: 5px 0;" onclick="startQuiz('easy')">🟢 Anfänger</button>
+        <button class="btn-sec" style="width:100%; margin: 5px 0;" onclick="startQuiz('medium')">🟡 Fortgeschritten</button>
+        <button class="btn-sec" style="width:100%; margin: 5px 0;" onclick="startQuiz('hard')">🔴 Experte</button>
     </div>
 
     <div id="quiz-content" class="hidden">
         <div class="progress-bar"><div id="progress"></div></div>
-        <p id="question-count" style="font-size: 0.8em; color: #888;"></p>
-        <h2 id="question">Lade Frage...</h2>
+        <p id="question-count" style="font-size: 0.75rem; color: #666;"></p>
+        <h2 id="question" style="font-size: 1.2rem;"></h2>
         <div id="options"></div>
-        <p id="feedback" style="font-weight: bold; text-align: center; height: 20px;"></p>
+        <p id="feedback" class="center" style="font-weight: bold; min-height: 20px;"></p>
     </div>
 
-    <div id="result-screen" class="hidden" style="text-align:center">
-        <h2>🎉 Quiz beendet!</h2>
-        <p id="score-text" style="font-size: 1.5em; margin: 20px 0;"></p>
-        <button class="btn-main" onclick="location.reload()">Zurück zum Start</button>
+    <div id="result-screen" class="hidden center">
+        <h2>¡Terminado! 🎉</h2>
+        <p id="score-text" style="font-size: 1.3rem;"></p>
+        <button class="btn-main" style="width:100%" onclick="location.reload()">Nochmal starten</button>
     </div>
 </div>
 
 <div id="rules-container" class="hidden">
-    <h2>Guía Rápida: Ser vs. Estar im Past</h2>
-    
-    <h3>1. SER (Identität, Herkunft, Charakter, Zeit)</h3>
-    <table>
-        <tr><th>Form</th><th>Typ</th><th>Wann nutzen?</th><th>Beispiel</th></tr>
-        <tr><td><b>Era</b></td><td>Imperfecto</td><td>Zustände, Beschreibungen, Gewohnheiten.</td><td><i>La casa <b>era</b> grande.</i></td></tr>
-        <tr><td><b>Fue</b></td><td>Indefinido</td><td>Ereignisse mit klarem Anfang/Ende.</td><td><i>La fiesta <b>fue</b> ayer.</i></td></tr>
-    </table>
-
-    <h3>2. ESTAR (Ort, Gefühle, temporäre Zustände)</h3>
-    <table>
-        <tr><th>Form</th><th>Typ</th><th>Wann nutzen?</th><th>Beispiel</th></tr>
-        <tr><td><b>Estaba</b></td><td>Imperfecto</td><td>Hintergrundinfos, laufende Handlungen.</td><td><i>Ella <b>estaba</b> cansada.</i></td></tr>
-        <tr><td><b>Estuve</b></td><td>Indefinido</td><td>Aufenthalt mit Zeitlimit.</td><td><i><b>Estuve</b> en Madrid un mes.</i></td></tr>
-    </table>
-    
-    <div style="background: #E8F4F8; padding: 20px; border-radius: 10px; margin-top: 20px;">
-        <h4>💡 Goldene Regel:</h4>
-        <p>Frag dich: <b>"Wie war es?"</b> (Charakter) -> <b>Era</b>. <br>
-           Frag dich: <b>"Was ist passiert?"</b> (Event) -> <b>Fue</b>. <br>
-           Frag dich: <b>"Wo/Wie fühlte er sich?"</b> (Hintergrund) -> <b>Estaba</b>.</p>
+    <h2>📖 Grammatik-Guide</h2>
+    <div class="table-wrapper">
+        <table>
+            <tr><th>Verb</th><th>Form</th><th>Nutzen für...</th></tr>
+            <tr><td><b>SER</b></td><td>Era</td><td>Charakter, Aussehen, Alter, Uhrzeit (Dauer/Hintergrund).</td></tr>
+            <tr><td><b>SER</b></td><td>Fue</td><td>Events, abgeschlossene Fakten (Punktuell).</td></tr>
+            <tr><td><b>ESTAR</b></td><td>Estaba</td><td>Gefühle, Ort, laufende Handlungen (damals).</td></tr>
+            <tr><td><b>ESTAR</b></td><td>Estuve</td><td>Aufenthalt mit klarem Zeitrahmen (von... bis).</td></tr>
+        </table>
+    </div>
+    <div style="background: #e1f5fe; padding: 15px; border-radius: 10px; font-size: 0.9rem;">
+        <b>Merksatz:</b> <br>
+        <i>¿Cómo era?</i> (Eigenschaft) vs. <i>¿Cómo estaba?</i> (Zustand/Befinden).
     </div>
 </div>
 
@@ -240,17 +247,13 @@
             showResults();
             return;
         }
-
         const q = currentLevelQuestions[currentIndex];
         document.getElementById('question').innerText = q.q;
-        document.getElementById('question-count').innerText = `Frage ${currentIndex + 1} von ${currentLevelQuestions.length}`;
-        
+        document.getElementById('question-count').innerText = `Frage ${currentIndex + 1} / ${currentLevelQuestions.length}`;
         const optionsDiv = document.getElementById('options');
         optionsDiv.innerHTML = '';
         document.getElementById('feedback').innerText = '';
-        
         document.getElementById('progress').style.width = (currentIndex / currentLevelQuestions.length) * 100 + "%";
-
         q.a.forEach((opt, index) => {
             const btn = document.createElement('button');
             btn.className = 'option';
@@ -263,34 +266,25 @@
     function checkAnswer(idx) {
         const correct = currentLevelQuestions[currentIndex].correct;
         const btns = document.getElementsByClassName('option');
-        
         if (idx === correct) {
             btns[idx].classList.add('correct');
             document.getElementById('feedback').innerText = "¡Muy bien! ✨";
-            document.getElementById('feedback').style.color = "var(--exito)";
             score++;
         } else {
             btns[idx].classList.add('wrong');
             btns[correct].classList.add('correct');
-            document.getElementById('feedback').innerText = "Casi... Inténtalo de nuevo.";
-            document.getElementById('feedback').style.color = "var(--error)";
+            document.getElementById('feedback').innerText = "Lo siento...";
         }
-
         for (let b of btns) b.disabled = true;
-
-        setTimeout(() => {
-            currentIndex++;
-            showQuestion();
-        }, 1800);
+        setTimeout(() => { currentIndex++; showQuestion(); }, 1500);
     }
 
     function showResults() {
         document.getElementById('quiz-content').classList.add('hidden');
         document.getElementById('result-screen').classList.remove('hidden');
-        document.getElementById('score-text').innerText = `Ergebnis: ${score} / ${currentLevelQuestions.length}`;
+        document.getElementById('score-text').innerText = `Du hast ${score} von ${currentLevelQuestions.length} Punkten erreicht!`;
         document.getElementById('progress').style.width = "100%";
     }
 </script>
-
 </body>
 </html>
