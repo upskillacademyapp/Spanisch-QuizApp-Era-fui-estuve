@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Español Quiz – ERA / ESTABA / ESTUVE / FUI / FUE</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f0e0c;
+    --card: #1a1916;
+    --border: #2e2c28;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #f0ead6;
+    --muted: #7a7568;
+    --green: #4caf82;
+    --red: #c95c4c;
+    --blue: #4c8ec9;
+  }
+
+- { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+background: var(–bg);
+color: var(–cream);
+font-family: ‘DM Sans’, sans-serif;
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 40px 20px;
+}
+
+header {
+text-align: center;
+margin-bottom: 48px;
+}
+
+header h1 {
+font-family: ‘Playfair Display’, serif;
+font-size: clamp(2rem, 5vw, 3.2rem);
+font-weight: 900;
+color: var(–gold);
+letter-spacing: -0.02em;
+line-height: 1.1;
+}
+
+header p {
+color: var(–muted);
+font-size: 0.95rem;
+margin-top: 10px;
+font-weight: 300;
+}
+
+.legend {
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+justify-content: center;
+margin-bottom: 40px;
+max-width: 700px;
+}
+
+.legend-item {
+background: var(–card);
+border: 1px solid var(–border);
+border-radius: 8px;
+padding: 8px 14px;
+font-size: 0.8rem;
+color: var(–muted);
+}
+
+.legend-item strong {
+color: var(–gold-light);
+font-weight: 500;
+}
+
+.quiz-container {
+width: 100%;
+max-width: 680px;
+}
+
+.question-card {
+background: var(–card);
+border: 1px solid var(–border);
+border-radius: 16px;
+padding: 36px;
+margin-bottom: 20px;
+transition: border-color 0.3s;
+position: relative;
+overflow: hidden;
+}
+
+.question-card::before {
+content: ‘’;
+position: absolute;
+top: 0; left: 0; right: 0;
+height: 2px;
+background: linear-gradient(90deg, transparent, var(–gold), transparent);
+opacity: 0;
+transition: opacity 0.3s;
+}
+
+.question-card.correct { border-color: var(–green); }
+.question-card.correct::before { opacity: 1; background: linear-gradient(90deg, transparent, var(–green), transparent); }
+.question-card.wrong { border-color: var(–red); }
+.question-card.wrong::before { opacity: 1; background: linear-gradient(90deg, transparent, var(–red), transparent); }
+
+.q-number {
+font-size: 0.75rem;
+color: var(–muted);
+letter-spacing: 0.1em;
+text-transform: uppercase;
+margin-bottom: 14px;
+}
+
+.q-german {
+font-size: 1rem;
+color: var(–muted);
+margin-bottom: 8px;
+font-style: italic;
+font-weight: 300;
+}
+
+.q-spanish {
+font-size: 1.2rem;
+color: var(–cream);
+font-weight: 500;
+margin-bottom: 24px;
+line-height: 1.5;
+}
+
+.q-spanish .blank {
+display: inline-block;
+min-width: 100px;
+border-bottom: 2px solid var(–gold);
+color: var(–gold);
+font-style: italic;
+text-align: center;
+padding: 0 4px;
+transition: color 0.3s, border-color 0.3s;
+}
+
+.question-card.correct .blank { color: var(–green); border-color: var(–green); }
+.question-card.wrong .blank { color: var(–red); border-color: var(–red); }
+
+.options {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+gap: 10px;
+}
+
+.option-btn {
+background: transparent;
+border: 1px solid var(–border);
+border-radius: 10px;
+color: var(–cream);
+font-family: ‘DM Sans’, sans-serif;
+font-size: 1rem;
+font-weight: 500;
+padding: 12px 16px;
+cursor: pointer;
+transition: all 0.2s;
+letter-spacing: 0.02em;
+}
+
+.option-btn:hover:not(:disabled) {
+border-color: var(–gold);
+color: var(–gold);
+background: rgba(201, 168, 76, 0.06);
+transform: translateY(-1px);
+}
+
+.option-btn.selected-correct {
+background: rgba(76, 175, 130, 0.12);
+border-color: var(–green);
+color: var(–green);
+}
+
+.option-btn.selected-wrong {
+background: rgba(201, 92, 76, 0.12);
+border-color: var(–red);
+color: var(–red);
+}
+
+.option-btn.show-correct {
+background: rgba(76, 175, 130, 0.08);
+border-color: var(–green);
+color: var(–green);
+}
+
+.option-btn:disabled { cursor: not-allowed; }
+
+.feedback {
+margin-top: 18px;
+padding: 14px 18px;
+border-radius: 10px;
+font-size: 0.9rem;
+line-height: 1.5;
+display: none;
+}
+
+.feedback.show { display: block; }
+.feedback.correct-fb { background: rgba(76, 175, 130, 0.1); color: var(–green); border: 1px solid rgba(76, 175, 130, 0.2); }
+.feedback.wrong-fb { background: rgba(201, 92, 76, 0.1); color: #e07060; border: 1px solid rgba(201, 92, 76, 0.2); }
+
+.controls {
+display: flex;
+gap: 12px;
+justify-content: center;
+margin-top: 40px;
+flex-wrap: wrap;
+}
+
+.btn {
+font-family: ‘DM Sans’, sans-serif;
+font-size: 0.95rem;
+font-weight: 500;
+padding: 14px 32px;
+border-radius: 12px;
+cursor: pointer;
+transition: all 0.2s;
+border: none;
+}
+
+.btn-primary {
+background: var(–gold);
+color: var(–bg);
+}
+
+.btn-primary:hover { background: var(–gold-light); transform: translateY(-1px); }
+
+.btn-secondary {
+background: transparent;
+color: var(–muted);
+border: 1px solid var(–border);
+}
+
+.btn-secondary:hover { border-color: var(–muted); color: var(–cream); }
+
+.score-bar {
+display: flex;
+align-items: center;
+gap: 16px;
+background: var(–card);
+border: 1px solid var(–border);
+border-radius: 12px;
+padding: 16px 24px;
+margin-bottom: 32px;
+max-width: 680px;
+width: 100%;
+}
+
+.score-label { color: var(–muted); font-size: 0.85rem; }
+.score-value { color: var(–gold); font-size: 1.1rem; font-weight: 500; margin-left: auto; }
+
+.progress-track {
+flex: 1;
+height: 4px;
+background: var(–border);
+border-radius: 2px;
+overflow: hidden;
+}
+
+.progress-fill {
+height: 100%;
+background: linear-gradient(90deg, var(–gold), var(–gold-light));
+border-radius: 2px;
+transition: width 0.4s ease;
+width: 0%;
+}
+
+.result-screen {
+text-align: center;
+padding: 60px 40px;
+background: var(–card);
+border: 1px solid var(–border);
+border-radius: 20px;
+max-width: 480px;
+width: 100%;
+display: none;
+}
+
+.result-screen.show { display: block; }
+
+.result-emoji { font-size: 4rem; margin-bottom: 20px; }
+
+.result-title {
+font-family: ‘Playfair Display’, serif;
+font-size: 2rem;
+color: var(–gold);
+margin-bottom: 10px;
+}
+
+.result-score {
+font-size: 3.5rem;
+font-weight: 300;
+color: var(–cream);
+margin: 20px 0;
+}
+
+.result-score span { color: var(–gold); font-weight: 700; }
+
+.result-msg {
+color: var(–muted);
+font-size: 0.95rem;
+line-height: 1.6;
+margin-bottom: 32px;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+  <h1>Español Quiz</h1>
+  <p>ERA · ESTABA · ESTUVE · FUI · FUE</p>
+</header>
+
+<div class="legend">
+  <div class="legend-item"><strong>ERA</strong> – Eigenschaft, allgemein</div>
+  <div class="legend-item"><strong>ESTABA</strong> – Zustand/Ort, Hintergrund</div>
+  <div class="legend-item"><strong>ESTUVE</strong> – Ort/Zustand, abgeschlossen</div>
+  <div class="legend-item"><strong>FUI</strong> – Aktion / Ich war</div>
+  <div class="legend-item"><strong>FUE</strong> – Es/Er/Sie war (abgeschlossen)</div>
+</div>
+
+<div class="score-bar">
+  <span class="score-label">Fortschritt</span>
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  <span class="score-value" id="scoreDisplay">0 / 0</span>
+</div>
+
+<div class="quiz-container" id="quizContainer"></div>
+<div class="result-screen" id="resultScreen">
+  <div class="result-emoji" id="resultEmoji"></div>
+  <div class="result-title">Ergebnis</div>
+  <div class="result-score" id="resultScore"></div>
+  <div class="result-msg" id="resultMsg"></div>
+  <button class="btn btn-primary" onclick="restartQuiz()">Nochmal spielen 🔄</button>
+</div>
+
+<div class="controls" id="controls">
+  <button class="btn btn-secondary" onclick="restartQuiz()">Neu starten</button>
+</div>
+
+<script>
+const allQuestions = [
+  {
+    german: "Als ich ankam, war das Büro schon leer.",
+    spanish: ["Cuando llegué, la oficina ya ", " vacía."],
+    answer: "ESTABA",
+    options: ["ERA", "ESTABA", "ESTUVE", "FUE"],
+    explanation: "ESTABA – Das Büro war in diesem Moment leer (Zustand als Hintergrund, kein abgeschlossenes Ereignis)."
+  },
+  {
+    german: "Warst du gestern auf der Party?",
+    spanish: ["¿", " ayer en la fiesta?"],
+    answer: "ESTUVISTE",
+    options: ["ESTABAS", "ESTUVISTE", "FUISTE", "ERAS"],
+    explanation: "ESTUVISTE – Du warst dort (Ort, abgeschlossener Besuch). Estabas wäre Hintergrund, z.B. 'als ich dich anrief'."
+  },
+  {
+    german: "Früher war sie sehr organisiert.",
+    spanish: ["Antes ", " muy organizada."],
+    answer: "ERA",
+    options: ["ERA", "FUE", "ESTABA", "ESTUVE"],
+    explanation: "ERA – Generelle Eigenschaft einer Person über längere Zeit → Imperfecto."
+  },
+  {
+    german: "Gestern war ich beim Arzt.",
+    spanish: ["Ayer ", " al médico."],
+    answer: "FUI",
+    options: ["ERA", "ESTABA", "ESTUVE", "FUI"],
+    explanation: "FUI – Abgeschlossene Aktion (ich bin hingegangen). Nicht estuve, weil 'al médico' eine Bewegung impliziert."
+  },
+  {
+    german: "Das Gespräch war sehr unangenehm.",
+    spanish: ["La conversación ", " muy incómoda."],
+    answer: "FUE",
+    options: ["ERA", "ESTABA", "FUE", "ESTUVE"],
+    explanation: "FUE – Dieses eine Gespräch war unangenehm, abgeschlossenes Ereignis. ERA wäre für generelle Beschreibung."
+  },
+  {
+    german: "Als das Telefon klingelte, war ich in einer Besprechung.",
+    spanish: ["Cuando sonó el teléfono, ", " en una reunión."],
+    answer: "ESTABA",
+    options: ["ESTABA", "ESTUVE", "ERA", "FUI"],
+    explanation: "ESTABA – Hintergrundzustand, der unterbrochen wurde. Klassisches Imperfecto-Muster."
+  },
+  {
+    german: "Es war ein langer Tag.",
+    spanish: ["", " un día muy largo."],
+    answer: "FUE",
+    options: ["ERA", "FUE", "ESTABA", "ESTUVE"],
+    explanation: "FUE – Dieser konkrete Tag war lang, abgeschlossen. ERA wäre für 'es war immer ein langer Job'."
+  },
+  {
+    german: "Ich war das nicht!",
+    spanish: ["¡No ", " yo!"],
+    answer: "FUI",
+    options: ["ERA", "ESTABA", "FUI", "ESTUVE"],
+    explanation: "FUI – Identität in einer konkreten Situation (wer hat etwas getan?), abgeschlossen."
+  },
+  {
+    german: "Letzte Woche war ich kurz im Büro.",
+    spanish: ["La semana pasada ", " un momento en la oficina."],
+    answer: "ESTUVE",
+    options: ["ESTABA", "ESTUVE", "FUI", "ERA"],
+    explanation: "ESTUVE – Ort + abgeschlossener Zeitraum (kurz, letzte Woche). Estaba wäre Hintergrund ohne klares Ende."
+  },
+  {
+    german: "Wo warst du? Ich habe dich gesucht!",
+    spanish: ["¿Dónde ", "? ¡Te estaba buscando!"],
+    answer: "ESTABAS",
+    options: ["ESTABAS", "ESTUVISTE", "ERAS", "FUISTE"],
+    explanation: "ESTABAS – Wo warst du (gerade)? Frage nach einem andauernden Zustand/Ort in der Vergangenheit."
+  },
+  {
+    german: "Früher war er mein Chef.",
+    spanish: ["Antes ", " mi jefe."],
+    answer: "ERA",
+    options: ["ERA", "FUE", "ESTABA", "ESTUVE"],
+    explanation: "ERA – Generelle Rolle/Eigenschaft über längere Zeit → Imperfecto de SER."
+  },
+  {
+    german: "Ich war gestern einkaufen.",
+    spanish: ["Ayer ", " de compras."],
+    answer: "FUI",
+    options: ["FUI", "ESTUVE", "ERA", "ESTABA"],
+    explanation: "FUI – Abgeschlossene Aktion (ir de compras). FUI ist hier Vergangenheit von IR (gehen)."
+  },
+  {
+    german: "Die Besprechung war um 10 Uhr und war kurz.",
+    spanish: ["La reunión ", " a las 10 y ", " corta."],
+    answer: "FUE",
+    options: ["ERA", "ESTABA", "ESTUVE", "FUE"],
+    explanation: "FUE (beide Lücken) – Konkrete, abgeschlossene Ereignisse mit klarer zeitlicher Angabe."
+  },
+  {
+    german: "Als Kind war sie sehr schüchtern.",
+    spanish: ["De niña, ", " muy tímida."],
+    answer: "ERA",
+    options: ["ERA", "FUE", "ESTABA", "ESTUVE"],
+    explanation: "ERA – Eigenschaft in der Kindheit (Dauerzustand, kein konkretes Ereignis)."
+  },
+  {
+    german: "Ich war ruhig während des Gesprächs.",
+    spanish: ["Durante la conversación ", " tranquila."],
+    answer: "ESTUVE",
+    options: ["ESTABA", "ESTUVE", "ERA", "FUI"],
+    explanation: "ESTUVE – Du warst ruhig während dieses konkreten, abgeschlossenen Gesprächs."
+  }
+];
+
+let questions = [];
+let answered = 0;
+let correct = 0;
+let currentAnswers = {};
+
+function shuffle(arr) {
+  return [...arr].sort(() => Math.random() - 0.5);
+}
+
+function initQuiz() {
+  questions = shuffle(allQuestions).slice(0, 10);
+  answered = 0;
+  correct = 0;
+  currentAnswers = {};
+  document.getElementById('resultScreen').classList.remove('show');
+  document.getElementById('quizContainer').style.display = '';
+  document.getElementById('controls').style.display = '';
+  updateScore();
+  renderQuestions();
+}
+
+function renderQuestions() {
+  const container = document.getElementById('quizContainer');
+  container.innerHTML = '';
+
+  questions.forEach((q, i) => {
+    const card = document.createElement('div');
+    card.className = 'question-card';
+    card.id = `card-${i}`;
+
+    const spanishText = q.spanish.length === 3
+      ? `${q.spanish[0]}<span class="blank" id="blank-${i}-0">______</span>${q.spanish[1]}<span class="blank" id="blank-${i}-1">______</span>${q.spanish[2]}`
+      : `${q.spanish[0]}<span class="blank" id="blank-${i}">______</span>${q.spanish[1]}`;
+
+    card.innerHTML = `
+      <div class="q-number">Frage ${i + 1} von ${questions.length}</div>
+      <div class="q-german">${q.german}</div>
+      <div class="q-spanish">${spanishText}</div>
+      <div class="options" id="options-${i}">
+        ${q.options.map(opt => `
+          <button class="option-btn" onclick="selectAnswer(${i}, '${opt}')">${opt}</button>
+        `).join('')}
+      </div>
+      <div class="feedback" id="feedback-${i}"></div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+function selectAnswer(qIndex, selected) {
+  if (currentAnswers[qIndex] !== undefined) return;
+
+  const q = questions[qIndex];
+  currentAnswers[qIndex] = selected;
+  answered++;
+
+  const card = document.getElementById(`card-${qIndex}`);
+  const feedback = document.getElementById(`feedback-${qIndex}`);
+  const buttons = document.querySelectorAll(`#options-${qIndex} .option-btn`);
+  const isCorrect = selected === q.answer;
+
+  if (isCorrect) correct++;
+
+  // Update blank display
+  const blank = document.getElementById(`blank-${qIndex}`);
+  if (blank) blank.textContent = selected;
+
+  // Style buttons
+  buttons.forEach(btn => {
+    btn.disabled = true;
+    if (btn.textContent === selected) {
+      btn.classList.add(isCorrect ? 'selected-correct' : 'selected-wrong');
+    }
+    if (!isCorrect && btn.textContent === q.answer) {
+      btn.classList.add('show-correct');
+    }
+  });
+
+  // Card state
+  card.classList.add(isCorrect ? 'correct' : 'wrong');
+
+  // Feedback
+  feedback.className = `feedback show ${isCorrect ? 'correct-fb' : 'wrong-fb'}`;
+  feedback.innerHTML = isCorrect
+    ? `✓ Richtig! ${q.explanation}`
+    : `✗ Nicht ganz. Richtig: <strong>${q.answer}</strong> – ${q.explanation}`;
+
+  updateScore();
+
+  if (answered === questions.length) {
+    setTimeout(showResult, 1200);
+  }
+}
+
+function updateScore() {
+  const pct = questions.length > 0 ? (answered / questions.length) * 100 : 0;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('scoreDisplay').textContent = `${correct} / ${answered}`;
+}
+
+function showResult() {
+  document.getElementById('quizContainer').style.display = 'none';
+  document.getElementById('controls').style.display = 'none';
+
+  const pct = Math.round((correct / questions.length) * 100);
+  let emoji, msg;
+
+  if (pct === 100) { emoji = '🏆'; msg = '¡Perfecto! Kein einziger Fehler – du hast das Thema wirklich verstanden!'; }
+  else if (pct >= 80) { emoji = '🎉'; msg = 'Sehr gut! Nur ein paar Kleinigkeiten – nochmal üben und du hast es!'; }
+  else if (pct >= 60) { emoji = '💪'; msg = 'Gut gemacht! Die Grundregeln sitzen – weiter so!'; }
+  else { emoji = '📚'; msg = 'Noch ein bisschen üben – schau nochmal in die Erklärungen und versuch es nochmal!'; }
+
+  document.getElementById('resultEmoji').textContent = emoji;
+  document.getElementById('resultScore').innerHTML = `<span>${correct}</span> / ${questions.length}`;
+  document.getElementById('resultMsg').textContent = msg;
+  document.getElementById('resultScreen').classList.add('show');
+}
+
+function restartQuiz() {
+  initQuiz();
+}
+
+initQuiz();
+</script>
+
+</body>
+</html>
