@@ -13,11 +13,25 @@ body{background:#ffffff;color:#0f1923;font-family:-apple-system,BlinkMacSystemFo
 /* ── NAV ── */
 #topnav{background:#fff;border-bottom:2px solid #d0d8df;position:sticky;top:0;z-index:300;box-shadow:0 2px 8px rgba(0,0,0,.07)}
 .nav-top{display:flex;align-items:center;gap:8px;padding:0 18px;min-height:54px}
-.brand{font-size:1rem;font-weight:800;color:#0d3d52;white-space:nowrap;flex:1}
+.brand{font-size:1rem;font-weight:800;color:#0d3d52;white-space:nowrap;flex:1;display:flex;align-items:center;gap:8px}
 .brand em{color:#1a5f7a;font-style:normal}
 
-/* Main tab buttons */
-.ntab{background:none;border:2px solid transparent;color:#3a4a56;font-family:inherit;font-size:.85rem;font-weight:700;padding:8px 20px;border-radius:24px;cursor:pointer;transition:all .18s;white-space:nowrap;min-height:40px;display:flex;align-items:center;gap:6px}
+/* GECKO */
+.gecko-wrap{position:relative;display:flex;align-items:center;cursor:default}
+.gecko-svg{width:38px;height:38px;flex-shrink:0;filter:drop-shadow(0 1px 2px rgba(0,0,0,.12));transition:transform .2s}
+.gecko-svg:hover{transform:rotate(-8deg) scale(1.08)}
+.gecko-bubble{position:absolute;left:44px;top:50%;transform:translateY(-50%);background:#0d3d52;color:#fff;font-size:.7rem;font-weight:700;padding:5px 10px;border-radius:10px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .2s;z-index:10}
+.gecko-bubble::before{content:’’;position:absolute;right:100%;top:50%;transform:translateY(-50%);border:5px solid transparent;border-right-color:#0d3d52}
+.gecko-wrap:hover .gecko-bubble{opacity:1}
+
+/* GECKO HERO */
+.gecko-hero{display:flex;flex-direction:column;align-items:center;margin-bottom:18px;position:relative}
+.gecko-hero-svg{width:80px;height:80px;filter:drop-shadow(0 3px 8px rgba(0,0,0,.15))}
+.gecko-speech{background:#0d3d52;color:#e2c270;font-size:.82rem;font-weight:700;padding:7px 16px;border-radius:20px;margin-top:8px;letter-spacing:.02em}
+.gecko-speech::before{content:’’;display:block;width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:8px solid #0d3d52;margin:0 auto -1px}
+
+/* GECKO FEEDBACK */
+.gecko-fb{font-size:1.1rem;margin-right:4px}color:#3a4a56;font-family:inherit;font-size:.85rem;font-weight:700;padding:8px 20px;border-radius:24px;cursor:pointer;transition:all .18s;white-space:nowrap;min-height:40px;display:flex;align-items:center;gap:6px}
 .ntab:hover{background:#daeef6;border-color:#b0d8ec;color:#0d3d52}
 .ntab.on{background:#0d3d52;color:#fff;border-color:#0d3d52}
 .ntab .arr{font-size:.7rem;transition:transform .2s;display:inline-block}
@@ -93,7 +107,7 @@ body{background:#ffffff;color:#0f1923;font-family:-apple-system,BlinkMacSystemFo
 .ibt{font-size:.86rem;line-height:1.62;color:#1e2d3a}
 .ibt strong{font-weight:700;color:#0d3d52}
 
-/* TRIGGER TABLE */
+/* SIGNALWORT TABLE */
 .tw{border-radius:12px;overflow:hidden;border:2px solid #d0d8df;margin-bottom:12px}
 .ts{overflow-x:auto;-webkit-overflow-scrolling:touch}
 table{width:100%;border-collapse:collapse;background:#fff;min-width:420px}
@@ -223,7 +237,63 @@ td.org{color:#a03808;font-weight:700}
 <div id="topnav">
   <!-- Top bar -->
   <div class="nav-top">
-    <span class="brand">🇮🇨 <em>Español</em></span>
+    <span class="brand">
+      <div class="gecko-wrap">
+        <!-- Cartoon Gecko SVG -->
+        <svg class="gecko-svg" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+          <!-- Body -->
+          <ellipse cx="40" cy="48" rx="13" ry="17" fill="#5aaa6a"/>
+          <!-- Belly -->
+          <ellipse cx="40" cy="50" rx="8" ry="12" fill="#a8e6b0"/>
+          <!-- Head -->
+          <ellipse cx="40" cy="28" rx="14" ry="12" fill="#5aaa6a"/>
+          <!-- Snout -->
+          <ellipse cx="40" cy="36" rx="7" ry="5" fill="#5aaa6a"/>
+          <!-- Eyes white -->
+          <circle cx="33" cy="24" r="5" fill="#fff"/>
+          <circle cx="47" cy="24" r="5" fill="#fff"/>
+          <!-- Pupils -->
+          <circle cx="34" cy="24" r="3" fill="#1a2a1a"/>
+          <circle cx="48" cy="24" r="3" fill="#1a2a1a"/>
+          <!-- Eye shine -->
+          <circle cx="35" cy="23" r="1" fill="#fff"/>
+          <circle cx="49" cy="23" r="1" fill="#fff"/>
+          <!-- Smile -->
+          <path d="M34 34 Q40 39 46 34" stroke="#3a7a48" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <!-- Nostrils -->
+          <circle cx="38" cy="32" r="1" fill="#3a7a48"/>
+          <circle cx="42" cy="32" r="1" fill="#3a7a48"/>
+          <!-- Tail -->
+          <path d="M40 65 Q50 72 55 78 Q52 74 46 70 Q42 68 40 65Z" fill="#5aaa6a"/>
+          <!-- Left front leg -->
+          <path d="M28 44 Q20 46 16 42" stroke="#5aaa6a" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <line x1="16" y1="42" x2="13" y2="38" stroke="#5aaa6a" stroke-width="3" stroke-linecap="round"/>
+          <line x1="16" y1="42" x2="14" y2="44" stroke="#5aaa6a" stroke-width="3" stroke-linecap="round"/>
+          <!-- Right front leg -->
+          <path d="M52 44 Q60 46 64 42" stroke="#5aaa6a" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <line x1="64" y1="42" x2="67" y2="38" stroke="#5aaa6a" stroke-width="3" stroke-linecap="round"/>
+          <line x1="64" y1="42" x2="66" y2="44" stroke="#5aaa6a" stroke-width="3" stroke-linecap="round"/>
+          <!-- Left back leg -->
+          <path d="M29 58 Q21 62 17 60" stroke="#5aaa6a" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <line x1="17" y1="60" x2="13" y2="57" stroke="#5aaa6a" stroke-width="3" stroke-linecap="round"/>
+          <line x1="17" y1="60" x2="15" y2="63" stroke="#5aaa6a" stroke-width="3" stroke-linecap="round"/>
+          <!-- Right back leg -->
+          <path d="M51 58 Q59 62 63 60" stroke="#5aaa6a" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <line x1="63" y1="60" x2="67" y2="57" stroke="#5aaa6a" stroke-width="3" stroke-linecap="round"/>
+          <line x1="63" y1="60" x2="65" y2="63" stroke="#5aaa6a" stroke-width="3" stroke-linecap="round"/>
+          <!-- Spots -->
+          <circle cx="40" cy="44" r="2" fill="#3a8a50" opacity=".5"/>
+          <circle cx="36" cy="52" r="1.5" fill="#3a8a50" opacity=".5"/>
+          <circle cx="44" cy="52" r="1.5" fill="#3a8a50" opacity=".5"/>
+          <!-- Little hat (profe!) -->
+          <rect x="30" y="14" width="20" height="3" rx="1.5" fill="#0d3d52"/>
+          <rect x="34" y="8" width="12" height="7" rx="2" fill="#0d3d52"/>
+          <rect x="36" y="11" width="8" height="2" rx="1" fill="#e2c270"/>
+        </svg>
+        <div class="gecko-bubble" id="gecko-bubble">¡Hola! Ich bin Gecko 🦎</div>
+      </div>
+      <em>Español</em>
+    </span>
     <button class="ntab on" id="tab-learn" onclick="togglePanel('learn')">
       📖 Lernen <span class="arr">▾</span>
     </button>
@@ -286,6 +356,43 @@ td.org{color:#a03808;font-weight:700}
 <!-- HERO -->
 
 <div id="hero">
+  <div class="gecko-hero">
+    <svg class="gecko-hero-svg" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="40" cy="48" rx="13" ry="17" fill="#5aaa6a"/>
+      <ellipse cx="40" cy="50" rx="8" ry="12" fill="#a8e6b0"/>
+      <ellipse cx="40" cy="28" rx="14" ry="12" fill="#5aaa6a"/>
+      <ellipse cx="40" cy="36" rx="7" ry="5" fill="#5aaa6a"/>
+      <circle cx="33" cy="24" r="5" fill="#fff"/>
+      <circle cx="47" cy="24" r="5" fill="#fff"/>
+      <circle cx="34" cy="24" r="3" fill="#1a2a1a"/>
+      <circle cx="48" cy="24" r="3" fill="#1a2a1a"/>
+      <circle cx="35" cy="23" r="1" fill="#fff"/>
+      <circle cx="49" cy="23" r="1" fill="#fff"/>
+      <path d="M34 34 Q40 39 46 34" stroke="#3a7a48" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <circle cx="38" cy="32" r="1" fill="#3a7a48"/>
+      <circle cx="42" cy="32" r="1" fill="#3a7a48"/>
+      <path d="M40 65 Q50 72 55 78 Q52 74 46 70 Q42 68 40 65Z" fill="#5aaa6a"/>
+      <path d="M28 44 Q20 46 16 42" stroke="#5aaa6a" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <line x1="16" y1="42" x2="13" y2="38" stroke="#5aaa6a" stroke-width="3" stroke-linecap="round"/>
+      <line x1="16" y1="42" x2="14" y2="44" stroke="#5aaa6a" stroke-width="3" stroke-linecap="round"/>
+      <path d="M52 44 Q60 46 64 42" stroke="#5aaa6a" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <line x1="64" y1="42" x2="67" y2="38" stroke="#5aaa6a" stroke-width="3" stroke-linecap="round"/>
+      <line x1="64" y1="42" x2="66" y2="44" stroke="#5aaa6a" stroke-width="3" stroke-linecap="round"/>
+      <path d="M29 58 Q21 62 17 60" stroke="#5aaa6a" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <line x1="17" y1="60" x2="13" y2="57" stroke="#5aaa6a" stroke-width="3" stroke-linecap="round"/>
+      <line x1="17" y1="60" x2="15" y2="63" stroke="#5aaa6a" stroke-width="3" stroke-linecap="round"/>
+      <path d="M51 58 Q59 62 63 60" stroke="#5aaa6a" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <line x1="63" y1="60" x2="67" y2="57" stroke="#5aaa6a" stroke-width="3" stroke-linecap="round"/>
+      <line x1="63" y1="60" x2="65" y2="63" stroke="#5aaa6a" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="40" cy="44" r="2" fill="#3a8a50" opacity=".5"/>
+      <circle cx="36" cy="52" r="1.5" fill="#3a8a50" opacity=".5"/>
+      <circle cx="44" cy="52" r="1.5" fill="#3a8a50" opacity=".5"/>
+      <rect x="30" y="14" width="20" height="3" rx="1.5" fill="#0d3d52"/>
+      <rect x="34" y="8" width="12" height="7" rx="2" fill="#0d3d52"/>
+      <rect x="36" y="11" width="8" height="2" rx="1" fill="#e2c270"/>
+    </svg>
+    <div class="gecko-speech" id="hero-bubble">¡Hola! Wähle eine Lektion und los geht's!</div>
+  </div>
   <div class="pills">
     <span style="background:#fdf3d0;color:#8a6a00;border:2px solid #b08900">ERA/FUE</span>
     <span style="background:#f0eefa;color:#5a2a8a;border:2px solid #6a3a9a">HABÍA/HUBO</span>
@@ -423,18 +530,18 @@ td.org{color:#a03808;font-weight:700}
 </div>
 
 <!-- ══════════════════════════════════════
-     LEKTION 3.1 – SUBJUNTIVO: TRIGGER & PRESENTE
+     LEKTION 3.1 – SUBJUNTIVO: SIGNALWÖRTER & PRESENTE
 ══════════════════════════════════════ -->
 
 <div class="pg" id="pg-learn3a">
   <div class="sec">
-    <div class="sh"><h2>Lektion 3.1 – Trigger & Presente de Subjuntivo</h2><div class="shl"></div></div>
+    <div class="sh"><h2>Lektion 3.1 – Signalwörter & Presente de Subjuntivo</h2><div class="shl"></div></div>
 
 ```
 <div class="vc subj">
   <div class="vh"><div class="vb">Was ist Subjuntivo?</div><div class="vi"><h3>Der Konjunktiv</h3><p>Wunsch · Zweifel · Emotion · Empfehlung</p></div></div>
   <div class="vbody">
-    <p class="vrule">Der Subjuntivo ist der <strong>Konjunktiv auf Spanisch</strong>. Er drückt aus, dass etwas <strong>nicht sicher, gewünscht, befürchtet oder empfohlen</strong> wird – nicht eine objektive Tatsache. Er kommt fast immer nach dem Wort <strong>„que"</strong> und einem Trigger-Ausdruck.</p>
+    <p class="vrule">Der Subjuntivo ist der <strong>Konjunktiv auf Spanisch</strong>. Er drückt aus, dass etwas <strong>nicht sicher, gewünscht, befürchtet oder empfohlen</strong> wird – nicht eine objektive Tatsache. Er kommt fast immer nach dem Wort <strong>„que"</strong> und einem Signalausdruck.</p>
     <div class="exs">
       <div class="exrow"><div class="ees">Quiero que <strong>vengas</strong>.</div><div class="ede">Ich möchte, dass du kommst. (Wunsch)</div></div>
       <div class="exrow"><div class="ees">Es importante que <strong>hables</strong>.</div><div class="ede">Es ist wichtig, dass du sprichst. (Empfehlung)</div></div>
@@ -444,7 +551,7 @@ td.org{color:#a03808;font-weight:700}
   </div>
 </div>
 
-<h3 class="sh3">Die wichtigsten Trigger-Wörter</h3>
+<h3 class="sh3">Die wichtigsten Signalwörter</h3>
 <div class="tw"><div class="ts">
   <table>
     <thead><tr><th>Kategorie</th><th>Spanisch</th><th>Deutsch</th></tr></thead>
@@ -493,13 +600,13 @@ td.org{color:#a03808;font-weight:700}
 </div></div>
 
 <div class="ig" style="margin-top:14px">
-  <div class="ib ib-grn"><div class="ibl">⚡ Die Formel</div><div class="ibt"><strong>Trigger + que + Subjuntivo</strong><br><em>Quiero que (tú) hables.</em><br>Anderes Subjekt im Nebensatz → Subjuntivo!</div></div>
+  <div class="ib ib-grn"><div class="ibl">⚡ Die Formel</div><div class="ibt"><strong>Signalwort + que + Subjuntivo</strong><br><em>Quiero que (tú) hables.</em><br>Anderes Subjekt im Nebensatz → Subjuntivo!</div></div>
   <div class="ib ib-pur"><div class="ibl">⚠️ Kein Subjuntivo wenn...</div><div class="ibt">...beide Sätze dasselbe Subjekt haben:<br><em>Quiero <strong>hablar</strong>.</em> (nicht: que hable)<br>Gleiche Person → Infinitiv!</div></div>
 </div>
 ```
 
   </div>
-  <div class="qbanner"><h3>Quiz 3.1 starten 🎯</h3><p>50 Fragen – nur Trigger-Wörter & Presente de Subjuntivo.</p><button class="gbtn" onclick="showPg('quiz3a')">→ Quiz 3.1</button></div>
+  <div class="qbanner"><h3>Quiz 3.1 starten 🎯</h3><p>50 Fragen – nur Signalwörter & Presente de Subjuntivo.</p><button class="gbtn" onclick="showPg('quiz3a')">→ Quiz 3.1</button></div>
 </div>
 
 <!-- ══════════════════════════════════════
@@ -794,59 +901,59 @@ q2:[
   {de:"Es gab zu der Zeit wenig Arbeit.",pre:"En aquella época ",suf:" poco trabajo.",a:"HABÍA",cat:"HABÍA",opts:["HABÍA","HUBO","ERA","FUE"],ex:"HABÍA → en aquella época + genereller Zustand."}
 ],
 
-/* ══ QUIZ 3a – SUBJUNTIVO: TRIGGER & PRESENTE ══ */
+/* ══ QUIZ 3a – SUBJUNTIVO: SIGNALWÖRTER & PRESENTE ══ */
 q3a:[
-  {de:"Ich möchte, dass du kommst.",pre:"Quiero que ",suf:".",a:"vengas",cat:"TRIGGER",opts:["vengas","vienes","vendrás","venías"],ex:"querer que → Trigger für Subjuntivo. tú-Form: vengas."},
-  {de:"Es ist wichtig, dass sie spricht.",pre:"Es importante que ",suf:".",a:"hable",cat:"TRIGGER",opts:["hable","habla","hablará","hablaba"],ex:"es importante que → unpersönlicher Trigger. ella-Form: hable."},
-  {de:"Ich hoffe, dass es klappt.",pre:"Espero que ",suf:".",a:"funcione",cat:"TRIGGER",opts:["funcione","funciona","funcionará","funcionaba"],ex:"esperar que → Wunsch-Trigger. funcionar → funcione."},
-  {de:"Sie empfiehlt, dass ich mehr lerne.",pre:"Me recomienda que ",suf:" más.",a:"estudie",cat:"TRIGGER",opts:["estudie","estudio","estudiaré","estudiaba"],ex:"recomendar que → Empfehlung. yo-Form: estudie."},
-  {de:"Ich zweifle, dass er recht hat.",pre:"Dudo que ",suf:" razón.",a:"tenga",cat:"ZWEIFEL",opts:["tenga","tiene","tendrá","tenía"],ex:"dudar que → Zweifel-Trigger. tener → tenga (unregelmäßig)."},
-  {de:"Es ist möglich, dass sie heute kommt.",pre:"Es posible que ",suf:" hoy.",a:"venga",cat:"TRIGGER",opts:["venga","viene","vendrá","venía"],ex:"es posible que → Möglichkeits-Trigger. venir → venga (unregelmäßig)."},
-  {de:"Ich glaube nicht, dass er es weiß.",pre:"No creo que lo ",suf:".",a:"sepa",cat:"ZWEIFEL",opts:["sepa","sabe","sabrá","sabía"],ex:"no creer que → Zweifel-Trigger. saber → sepa (unregelmäßig)."},
-  {de:"Sie freut sich, dass ich hier bin.",pre:"Se alegra de que ",suf:" aquí.",a:"esté",cat:"EMOTION",opts:["esté","estoy","estaré","estaba"],ex:"alegrarse de que → Emotion-Trigger. estar → esté (unregelmäßig)."},
-  {de:"Ich rate dir, dass du früh aufstehst.",pre:"Te aconsejo que ",suf:" temprano.",a:"te levantes",cat:"TRIGGER",opts:["te levantes","te levantas","te levantarás","te levantabas"],ex:"aconsejar que → Empfehlung. levantarse → te levantes."},
-  {de:"Es ist nötig, dass du das machst.",pre:"Es necesario que ",suf:" eso.",a:"hagas",cat:"TRIGGER",opts:["hagas","haces","harás","hacías"],ex:"es necesario que → Notwendigkeits-Trigger. hacer → hagas (unregelmäßig)."},
-  {de:"Ich möchte, dass er früher kommt.",pre:"Quiero que ",suf:" más temprano.",a:"venga",cat:"TRIGGER",opts:["venga","viene","vendrá","venía"],ex:"querer que → Trigger. venir → venga (unregelmäßig)."},
-  {de:"Es ist besser, dass du schläfst.",pre:"Es mejor que ",suf:".",a:"duermas",cat:"TRIGGER",opts:["duermas","duermes","dormirás","dormías"],ex:"es mejor que → unpersönlicher Trigger. dormir → duermas."},
-  {de:"Sie wünscht, dass ich bleibe.",pre:"Desea que ",suf:".",a:"me quede",cat:"TRIGGER",opts:["me quede","me quedo","me quedaré","me quedaba"],ex:"desear que → Wunsch-Trigger. quedarse → me quede."},
-  {de:"Es überrascht mich, dass er lügt.",pre:"Me sorprende que ",suf:".",a:"mienta",cat:"EMOTION",opts:["mienta","miente","mentirá","mentía"],ex:"sorprender que → Emotions-Trigger. mentir → mienta."},
-  {de:"Ich schlage vor, dass wir gehen.",pre:"Sugiero que ",suf:".",a:"vayamos",cat:"TRIGGER",opts:["vayamos","vamos","iremos","íbamos"],ex:"sugerir que → Empfehlung. ir → vayamos (unregelmäßig)."},
-  {de:"Es tut mir leid, dass du krank bist.",pre:"Siento que ",suf:" enfermo.",a:"estés",cat:"EMOTION",opts:["estés","estás","estarás","estabas"],ex:"sentir que (mit Bedauern) → Emotions-Trigger. estar → estés."},
+  {de:"Ich möchte, dass du kommst.",pre:"Quiero que ",suf:".",a:"vengas",cat:"SIGNALWORT",opts:["vengas","vienes","vendrás","venías"],ex:"querer que → Signalwort für Subjuntivo. tú-Form: vengas."},
+  {de:"Es ist wichtig, dass sie spricht.",pre:"Es importante que ",suf:".",a:"hable",cat:"SIGNALWORT",opts:["hable","habla","hablará","hablaba"],ex:"es importante que → unpersönliches Signal. ella-Form: hable."},
+  {de:"Ich hoffe, dass es klappt.",pre:"Espero que ",suf:".",a:"funcione",cat:"SIGNALWORT",opts:["funcione","funciona","funcionará","funcionaba"],ex:"esperar que → Wunsch-Signalwort. funcionar → funcione."},
+  {de:"Sie empfiehlt, dass ich mehr lerne.",pre:"Me recomienda que ",suf:" más.",a:"estudie",cat:"SIGNALWORT",opts:["estudie","estudio","estudiaré","estudiaba"],ex:"recomendar que → Empfehlung. yo-Form: estudie."},
+  {de:"Ich zweifle, dass er recht hat.",pre:"Dudo que ",suf:" razón.",a:"tenga",cat:"ZWEIFEL",opts:["tenga","tiene","tendrá","tenía"],ex:"dudar que → Zweifel-Signal. tener → tenga (unregelmäßig)."},
+  {de:"Es ist möglich, dass sie heute kommt.",pre:"Es posible que ",suf:" hoy.",a:"venga",cat:"SIGNALWORT",opts:["venga","viene","vendrá","venía"],ex:"es posible que → Möglichkeits-Signal. venir → venga (unregelmäßig)."},
+  {de:"Ich glaube nicht, dass er es weiß.",pre:"No creo que lo ",suf:".",a:"sepa",cat:"ZWEIFEL",opts:["sepa","sabe","sabrá","sabía"],ex:"no creer que → Zweifel-Signal. saber → sepa (unregelmäßig)."},
+  {de:"Sie freut sich, dass ich hier bin.",pre:"Se alegra de que ",suf:" aquí.",a:"esté",cat:"EMOTION",opts:["esté","estoy","estaré","estaba"],ex:"alegrarse de que → Emotions-Signal. estar → esté (unregelmäßig)."},
+  {de:"Ich rate dir, dass du früh aufstehst.",pre:"Te aconsejo que ",suf:" temprano.",a:"te levantes",cat:"SIGNALWORT",opts:["te levantes","te levantas","te levantarás","te levantabas"],ex:"aconsejar que → Empfehlung. levantarse → te levantes."},
+  {de:"Es ist nötig, dass du das machst.",pre:"Es necesario que ",suf:" eso.",a:"hagas",cat:"SIGNALWORT",opts:["hagas","haces","harás","hacías"],ex:"es necesario que → Notwendigkeits-Signal. hacer → hagas (unregelmäßig)."},
+  {de:"Ich möchte, dass er früher kommt.",pre:"Quiero que ",suf:" más temprano.",a:"venga",cat:"SIGNALWORT",opts:["venga","viene","vendrá","venía"],ex:"querer que → Signalwort. venir → venga (unregelmäßig)."},
+  {de:"Es ist besser, dass du schläfst.",pre:"Es mejor que ",suf:".",a:"duermas",cat:"SIGNALWORT",opts:["duermas","duermes","dormirás","dormías"],ex:"es mejor que → unpersönliches Signal. dormir → duermas."},
+  {de:"Sie wünscht, dass ich bleibe.",pre:"Desea que ",suf:".",a:"me quede",cat:"SIGNALWORT",opts:["me quede","me quedo","me quedaré","me quedaba"],ex:"desear que → Wunsch-Signalwort. quedarse → me quede."},
+  {de:"Es überrascht mich, dass er lügt.",pre:"Me sorprende que ",suf:".",a:"mienta",cat:"EMOTION",opts:["mienta","miente","mentirá","mentía"],ex:"sorprender que → Emotions-Signal. mentir → mienta."},
+  {de:"Ich schlage vor, dass wir gehen.",pre:"Sugiero que ",suf:".",a:"vayamos",cat:"SIGNALWORT",opts:["vayamos","vamos","iremos","íbamos"],ex:"sugerir que → Empfehlung. ir → vayamos (unregelmäßig)."},
+  {de:"Es tut mir leid, dass du krank bist.",pre:"Siento que ",suf:" enfermo.",a:"estés",cat:"EMOTION",opts:["estés","estás","estarás","estabas"],ex:"sentir que (mit Bedauern) → Emotions-Signal. estar → estés."},
   {de:"Ich fürchte, dass er nicht kommt.",pre:"Temo que no ",suf:".",a:"venga",cat:"EMOTION",opts:["venga","viene","vendrá","venía"],ex:"temer que → Angst/Emotion. venir → venga (unregelmäßig)."},
-  {de:"Es ist verboten, dass man hier raucht.",pre:"Se prohíbe que ",suf:" aquí.",a:"se fume",cat:"TRIGGER",opts:["se fume","se fuma","se fumará","se fumaba"],ex:"prohibir que → Verbots-Trigger. fumar → se fume."},
-  {de:"Ich hoffe, dass du es schaffst.",pre:"Espero que lo ",suf:".",a:"consigas",cat:"TRIGGER",opts:["consigas","consigues","conseguirás","conseguías"],ex:"esperar que → Wunsch. conseguir → consigas."},
-  {de:"Es ist schade, dass sie geht.",pre:"Es una lástima que ",suf:".",a:"se vaya",cat:"TRIGGER",opts:["se vaya","se va","se irá","se iba"],ex:"es una lástima que → Emotions-Trigger. irse → se vaya (unregelmäßig)."},
-  {de:"Ich möchte, dass du glücklich bist.",pre:"Quiero que ",suf:" feliz.",a:"seas",cat:"TRIGGER",opts:["seas","eres","serás","eras"],ex:"querer que → Trigger. ser → seas (unregelmäßig)."},
-  {de:"Sie erlaubt, dass ich früher gehe.",pre:"Me permite que ",suf:" antes.",a:"me vaya",cat:"TRIGGER",opts:["me vaya","me voy","me iré","me iba"],ex:"permitir que → Erlaubnis-Trigger. irse → me vaya (unregelmäßig)."},
-  {de:"Es ist wichtig, dass wir pünktlich sind.",pre:"Es importante que ",suf:" puntuales.",a:"seamos",cat:"TRIGGER",opts:["seamos","somos","seremos","éramos"],ex:"es importante que → Trigger. ser → seamos (unregelmäßig)."},
+  {de:"Es ist verboten, dass man hier raucht.",pre:"Se prohíbe que ",suf:" aquí.",a:"se fume",cat:"SIGNALWORT",opts:["se fume","se fuma","se fumará","se fumaba"],ex:"prohibir que → Verbots-Signal. fumar → se fume."},
+  {de:"Ich hoffe, dass du es schaffst.",pre:"Espero que lo ",suf:".",a:"consigas",cat:"SIGNALWORT",opts:["consigas","consigues","conseguirás","conseguías"],ex:"esperar que → Wunsch. conseguir → consigas."},
+  {de:"Es ist schade, dass sie geht.",pre:"Es una lástima que ",suf:".",a:"se vaya",cat:"SIGNALWORT",opts:["se vaya","se va","se irá","se iba"],ex:"es una lástima que → Emotions-Signal. irse → se vaya (unregelmäßig)."},
+  {de:"Ich möchte, dass du glücklich bist.",pre:"Quiero que ",suf:" feliz.",a:"seas",cat:"SIGNALWORT",opts:["seas","eres","serás","eras"],ex:"querer que → Signalwort. ser → seas (unregelmäßig)."},
+  {de:"Sie erlaubt, dass ich früher gehe.",pre:"Me permite que ",suf:" antes.",a:"me vaya",cat:"SIGNALWORT",opts:["me vaya","me voy","me iré","me iba"],ex:"permitir que → Erlaubnis-Signal. irse → me vaya (unregelmäßig)."},
+  {de:"Es ist wichtig, dass wir pünktlich sind.",pre:"Es importante que ",suf:" puntuales.",a:"seamos",cat:"SIGNALWORT",opts:["seamos","somos","seremos","éramos"],ex:"es importante que → Signalwort. ser → seamos (unregelmäßig)."},
   {de:"Ich freue mich, dass du hier bist.",pre:"Me alegro de que ",suf:" aquí.",a:"estés",cat:"EMOTION",opts:["estés","estás","estarás","estabas"],ex:"alegrarse de que → Emotion. estar → estés (unregelmäßig)."},
-  {de:"Wir bitten, dass er antwortet.",pre:"Le pedimos que ",suf:".",a:"responda",cat:"TRIGGER",opts:["responda","responde","responderá","respondía"],ex:"pedir que → Bitte-Trigger. responder → responda."},
-  {de:"Es ist gut, dass du fragst.",pre:"Es bueno que ",suf:".",a:"preguntes",cat:"TRIGGER",opts:["preguntes","preguntas","preguntarás","preguntabas"],ex:"es bueno que → positiver unpersönlicher Trigger. preguntar → preguntes."},
-  {de:"Ich möchte nicht, dass er es erfährt.",pre:"No quiero que lo ",suf:".",a:"sepa",cat:"TRIGGER",opts:["sepa","sabe","sabrá","sabía"],ex:"no querer que → negativer Wunsch-Trigger. saber → sepa (unregelmäßig)."},
-  {de:"Es ist seltsam, dass sie nicht kommt.",pre:"Es raro que no ",suf:".",a:"venga",cat:"TRIGGER",opts:["venga","viene","vendrá","venía"],ex:"es raro que → Trigger für Überraschung/Zweifel. venir → venga."},
-  {de:"Sie hofft, dass ich es verstehe.",pre:"Espera que lo ",suf:".",a:"entienda",cat:"TRIGGER",opts:["entienda","entiendo","entenderé","entendía"],ex:"esperar que → Wunsch. entender → entienda (Stammvokalwechsel e→ie)."},
-  {de:"Es ist logisch, dass du müde bist.",pre:"Es lógico que ",suf:" cansada.",a:"estés",cat:"TRIGGER",opts:["estés","estás","estarás","estabas"],ex:"es lógico que → unpersönlicher Trigger. estar → estés."},
+  {de:"Wir bitten, dass er antwortet.",pre:"Le pedimos que ",suf:".",a:"responda",cat:"SIGNALWORT",opts:["responda","responde","responderá","respondía"],ex:"pedir que → Bitte-Signalwort. responder → responda."},
+  {de:"Es ist gut, dass du fragst.",pre:"Es bueno que ",suf:".",a:"preguntes",cat:"SIGNALWORT",opts:["preguntes","preguntas","preguntarás","preguntabas"],ex:"es bueno que → positiver unpersönliches Signal. preguntar → preguntes."},
+  {de:"Ich möchte nicht, dass er es erfährt.",pre:"No quiero que lo ",suf:".",a:"sepa",cat:"SIGNALWORT",opts:["sepa","sabe","sabrá","sabía"],ex:"no querer que → negativer Wunsch-Signalwort. saber → sepa (unregelmäßig)."},
+  {de:"Es ist seltsam, dass sie nicht kommt.",pre:"Es raro que no ",suf:".",a:"venga",cat:"SIGNALWORT",opts:["venga","viene","vendrá","venía"],ex:"es raro que → Signal für Überraschung/Zweifel. venir → venga."},
+  {de:"Sie hofft, dass ich es verstehe.",pre:"Espera que lo ",suf:".",a:"entienda",cat:"SIGNALWORT",opts:["entienda","entiendo","entenderé","entendía"],ex:"esperar que → Wunsch. entender → entienda (Stammvokalwechsel e→ie)."},
+  {de:"Es ist logisch, dass du müde bist.",pre:"Es lógico que ",suf:" cansada.",a:"estés",cat:"SIGNALWORT",opts:["estés","estás","estarás","estabas"],ex:"es lógico que → unpersönliches Signal. estar → estés."},
   {de:"Ich bezweifle, dass es regnet.",pre:"Dudo que ",suf:".",a:"llueva",cat:"ZWEIFEL",opts:["llueva","llueve","lloverá","llovía"],ex:"dudar que → Zweifel. llover → llueva (unregelmäßig)."},
   {de:"Es freut mich, dass du lernst.",pre:"Me alegra que ",suf:".",a:"aprendas",cat:"EMOTION",opts:["aprendas","aprendes","aprenderás","aprendías"],ex:"alegrarse de que → Emotion. aprender → aprendas."},
-  {de:"Sie bittet, dass ich früher ankomme.",pre:"Me pide que ",suf:" antes.",a:"llegue",cat:"TRIGGER",opts:["llegue","llego","llegaré","llegaba"],ex:"pedir que → Bitte. llegar → llegue."},
-  {de:"Es ist unmöglich, dass er das gemacht hat.",pre:"Es imposible que lo ",suf:".",a:"haya hecho",cat:"TRIGGER",opts:["haya hecho","ha hecho","hará","hacía"],ex:"es imposible que → Trigger. haya hecho = Presente Perfecto Subjuntivo."},
-  {de:"Ich möchte, dass du mit mir sprichst.",pre:"Quiero que ",suf:" conmigo.",a:"hables",cat:"TRIGGER",opts:["hables","hablas","hablarás","hablabas"],ex:"querer que → Trigger. hablar → hables."},
-  {de:"Es ist normal, dass sie nervös ist.",pre:"Es normal que ",suf:" nerviosa.",a:"esté",cat:"TRIGGER",opts:["esté","está","estará","estaba"],ex:"es normal que → Trigger. estar → esté (unregelmäßig)."},
-  {de:"Ich empfehle, dass du die Lernseite liest.",pre:"Te recomiendo que ",suf:" la página de estudio.",a:"leas",cat:"TRIGGER",opts:["leas","lees","leerás","leías"],ex:"recomendar que → Empfehlung. leer → leas."},
-  {de:"Es ist wichtig, dass sie kommen.",pre:"Es importante que ",suf:".",a:"vengan",cat:"TRIGGER",opts:["vengan","vienen","vendrán","venían"],ex:"es importante que → Trigger. venir → vengan (3. Person Plural, unregelmäßig)."},
-  {de:"Ich warte darauf, dass er antwortet.",pre:"Espero que ",suf:".",a:"conteste",cat:"TRIGGER",opts:["conteste","contesta","contestará","contestaba"],ex:"esperar que → Wunsch/Erwartung. contestar → conteste."},
-  {de:"Sie ist froh, dass er es weiß.",pre:"Está contenta de que lo ",suf:".",a:"sepa",cat:"EMOTION",opts:["sepa","sabe","sabrá","sabía"],ex:"estar contento/a de que → Emotions-Trigger. saber → sepa."},
-  {de:"Es ist unglaublich, dass das passiert ist.",pre:"Es increíble que ",suf:" pasado.",a:"haya",cat:"TRIGGER",opts:["haya","ha","habrá","había"],ex:"es increíble que → Trigger. haya pasado = Presente Perfecto Subjuntivo."},
-  {de:"Ich rate ihr, dass sie früher schläft.",pre:"Le aconsejo que ",suf:" más temprano.",a:"duerma",cat:"TRIGGER",opts:["duerma","duerme","dormirá","dormía"],ex:"aconsejar que → Empfehlung. dormir → duerma."},
-  {de:"Es ist gut, dass du übst.",pre:"Es bueno que ",suf:".",a:"practiques",cat:"TRIGGER",opts:["practiques","practicas","practicarás","practicabas"],ex:"es bueno que → Trigger. practicar → practiques."},
-  {de:"Ich hoffe, dass wir uns sehen.",pre:"Espero que nos ",suf:".",a:"veamos",cat:"TRIGGER",opts:["veamos","vemos","veremos","veíamos"],ex:"esperar que → Wunsch. ver → veamos (unregelmäßig)."},
-  {de:"Sie verbietet ihm, dass er geht.",pre:"Le prohíbe que ",suf:".",a:"se vaya",cat:"TRIGGER",opts:["se vaya","se va","se irá","se iba"],ex:"prohibir que → Verbot. irse → se vaya (unregelmäßig)."},
-  {de:"Es ist besser, dass du früh aufstehst.",pre:"Es mejor que ",suf:" temprano.",a:"te levantes",cat:"TRIGGER",opts:["te levantes","te levantas","te levantarás","te levantabas"],ex:"es mejor que → Trigger. levantarse → te levantes."},
-  {de:"Ich wünsche, dass alles gut geht.",pre:"Deseo que todo ",suf:" bien.",a:"salga",cat:"TRIGGER",opts:["salga","sale","saldrá","salía"],ex:"desear que → Wunsch. salir → salga (unregelmäßig)."},
-  {de:"Sie erwartet, dass ich pünktlich bin.",pre:"Espera que ",suf:" puntual.",a:"sea",cat:"TRIGGER",opts:["sea","soy","seré","era"],ex:"esperar que → Wunsch/Erwartung. ser → sea (unregelmäßig)."},
-  {de:"Es ist schön, dass du fragst.",pre:"Es bonito que ",suf:".",a:"preguntes",cat:"TRIGGER",opts:["preguntes","preguntas","preguntarás","preguntabas"],ex:"es bonito que → positiver Trigger. preguntar → preguntes."},
-  {de:"Ich bin überrascht, dass er nicht da ist.",pre:"Me sorprende que no ",suf:".",a:"esté",cat:"EMOTION",opts:["esté","está","estará","estaba"],ex:"sorprender que → Emotions-Trigger. estar → esté (unregelmäßig)."},
-  {de:"Wir empfehlen, dass du übst.",pre:"Te recomendamos que ",suf:".",a:"practiques",cat:"TRIGGER",opts:["practiques","practicas","practicarás","practicabas"],ex:"recomendar que → Empfehlung. practicar → practiques."}
+  {de:"Sie bittet, dass ich früher ankomme.",pre:"Me pide que ",suf:" antes.",a:"llegue",cat:"SIGNALWORT",opts:["llegue","llego","llegaré","llegaba"],ex:"pedir que → Bitte. llegar → llegue."},
+  {de:"Es ist unmöglich, dass er das gemacht hat.",pre:"Es imposible que lo ",suf:".",a:"haya hecho",cat:"SIGNALWORT",opts:["haya hecho","ha hecho","hará","hacía"],ex:"es imposible que → Signalwort. haya hecho = Presente Perfecto Subjuntivo."},
+  {de:"Ich möchte, dass du mit mir sprichst.",pre:"Quiero que ",suf:" conmigo.",a:"hables",cat:"SIGNALWORT",opts:["hables","hablas","hablarás","hablabas"],ex:"querer que → Signalwort. hablar → hables."},
+  {de:"Es ist normal, dass sie nervös ist.",pre:"Es normal que ",suf:" nerviosa.",a:"esté",cat:"SIGNALWORT",opts:["esté","está","estará","estaba"],ex:"es normal que → Signalwort. estar → esté (unregelmäßig)."},
+  {de:"Ich empfehle, dass du die Lernseite liest.",pre:"Te recomiendo que ",suf:" la página de estudio.",a:"leas",cat:"SIGNALWORT",opts:["leas","lees","leerás","leías"],ex:"recomendar que → Empfehlung. leer → leas."},
+  {de:"Es ist wichtig, dass sie kommen.",pre:"Es importante que ",suf:".",a:"vengan",cat:"SIGNALWORT",opts:["vengan","vienen","vendrán","venían"],ex:"es importante que → Signalwort. venir → vengan (3. Person Plural, unregelmäßig)."},
+  {de:"Ich warte darauf, dass er antwortet.",pre:"Espero que ",suf:".",a:"conteste",cat:"SIGNALWORT",opts:["conteste","contesta","contestará","contestaba"],ex:"esperar que → Wunsch/Erwartung. contestar → conteste."},
+  {de:"Sie ist froh, dass er es weiß.",pre:"Está contenta de que lo ",suf:".",a:"sepa",cat:"EMOTION",opts:["sepa","sabe","sabrá","sabía"],ex:"estar contento/a de que → Emotions-Signal. saber → sepa."},
+  {de:"Es ist unglaublich, dass das passiert ist.",pre:"Es increíble que ",suf:" pasado.",a:"haya",cat:"SIGNALWORT",opts:["haya","ha","habrá","había"],ex:"es increíble que → Signalwort. haya pasado = Presente Perfecto Subjuntivo."},
+  {de:"Ich rate ihr, dass sie früher schläft.",pre:"Le aconsejo que ",suf:" más temprano.",a:"duerma",cat:"SIGNALWORT",opts:["duerma","duerme","dormirá","dormía"],ex:"aconsejar que → Empfehlung. dormir → duerma."},
+  {de:"Es ist gut, dass du übst.",pre:"Es bueno que ",suf:".",a:"practiques",cat:"SIGNALWORT",opts:["practiques","practicas","practicarás","practicabas"],ex:"es bueno que → Signalwort. practicar → practiques."},
+  {de:"Ich hoffe, dass wir uns sehen.",pre:"Espero que nos ",suf:".",a:"veamos",cat:"SIGNALWORT",opts:["veamos","vemos","veremos","veíamos"],ex:"esperar que → Wunsch. ver → veamos (unregelmäßig)."},
+  {de:"Sie verbietet ihm, dass er geht.",pre:"Le prohíbe que ",suf:".",a:"se vaya",cat:"SIGNALWORT",opts:["se vaya","se va","se irá","se iba"],ex:"prohibir que → Verbot. irse → se vaya (unregelmäßig)."},
+  {de:"Es ist besser, dass du früh aufstehst.",pre:"Es mejor que ",suf:" temprano.",a:"te levantes",cat:"SIGNALWORT",opts:["te levantes","te levantas","te levantarás","te levantabas"],ex:"es mejor que → Signalwort. levantarse → te levantes."},
+  {de:"Ich wünsche, dass alles gut geht.",pre:"Deseo que todo ",suf:" bien.",a:"salga",cat:"SIGNALWORT",opts:["salga","sale","saldrá","salía"],ex:"desear que → Wunsch. salir → salga (unregelmäßig)."},
+  {de:"Sie erwartet, dass ich pünktlich bin.",pre:"Espera que ",suf:" puntual.",a:"sea",cat:"SIGNALWORT",opts:["sea","soy","seré","era"],ex:"esperar que → Wunsch/Erwartung. ser → sea (unregelmäßig)."},
+  {de:"Es ist schön, dass du fragst.",pre:"Es bonito que ",suf:".",a:"preguntes",cat:"SIGNALWORT",opts:["preguntes","preguntas","preguntarás","preguntabas"],ex:"es bonito que → positives Signal. preguntar → preguntes."},
+  {de:"Ich bin überrascht, dass er nicht da ist.",pre:"Me sorprende que no ",suf:".",a:"esté",cat:"EMOTION",opts:["esté","está","estará","estaba"],ex:"sorprender que → Emotions-Signal. estar → esté (unregelmäßig)."},
+  {de:"Wir empfehlen, dass du übst.",pre:"Te recomendamos que ",suf:".",a:"practiques",cat:"SIGNALWORT",opts:["practiques","practicas","practicarás","practicabas"],ex:"recomendar que → Empfehlung. practicar → practiques."}
 ],
 
 /* ══ QUIZ 3b – IMPERFECTO DE SUBJUNTIVO ══ */
@@ -969,9 +1076,9 @@ var TIPS={
   HABÍA:"HABÍA = es gab (Hintergrund). Wie ESTABA, aber für Existenz. → Lektion 2",
   HUBO:"HUBO = es gab (Ereignis, einmalig). Wie FUE, aber für Existenz. → Lektion 2",
   PLUSCUAM:"HABÍA + Partizip = Vorvergangenheit. Etwas war schon passiert. → Lektion 2",
-  TRIGGER:"Trigger-Wörter (querer que, es importante que...) → immer Subjuntivo! → Lektion 3.1",
-  ZWEIFEL:"Zweifel-Trigger (no creer que, dudar que...) → Subjuntivo. → Lektion 3.1",
-  EMOTION:"Emotions-Trigger (alegrarse de que, sorprender que...) → Subjuntivo. → Lektion 3.1",
+  SIGNALWORT:"Signalwörter (querer que, es importante que...) → immer Subjuntivo! → Lektion 3.1",
+  ZWEIFEL:"Zweifel-Signal (no creer que, dudar que...) → Subjuntivo. → Lektion 3.1",
+  EMOTION:"Emotions-Signal (alegrarse de que, sorprender que...) → Subjuntivo. → Lektion 3.1",
   "SI-SATZ":"Si + Imperfecto Subj. + Condicional = irreale Bedingung. → Lektion 3.2",
   VERGANGENHEIT:"Hauptverb in Vergangenheit → Imperfecto de Subjuntivo. → Lektion 3.2",
   OJALÁ:"Ojalá + Presente Subj. (Hoffnung) oder Imperfecto Subj. (unrealer Wunsch). → Lektionen 3.2/3.3",
@@ -982,7 +1089,7 @@ var TIPS={
 var COLORS={
   ERA:"#b08900",ESTABA:"#1a5f7a",ESTUVE:"#1a7a44",FUI:"#884010",FUE:"#5a3a7a",
   HABÍA:"#6a3a9a",HUBO:"#c05010",PLUSCUAM:"#0d3d52",
-  TRIGGER:"#1a7a44",ZWEIFEL:"#c05010",EMOTION:"#5a3a7a",
+  SIGNALWORT:"#1a7a44",ZWEIFEL:"#c05010",EMOTION:"#5a3a7a",
   "SI-SATZ":"#a03808",VERGANGENHEIT:"#6a3a9a",OJALÁ:"#1a5f7a",
   PRESENTE:"#1a7a44",IMPERFECTO:"#a03808",ESTILO:"#5a2a8a"
 };
@@ -1102,48 +1209,76 @@ engines['q3c']=makeEngine('q3c');
 
 /* ══ NAVIGATION ══ */
 var learnPages=['learn1','learn2','learn3a','learn3b','learn3c'];
-var quizPages =['quiz1','quiz2','quiz3a','quiz3b','quiz3c'];
+var lastScroll=0;
+
+/* Close panels when scrolling down */
+window.addEventListener('scroll',function(){
+  var cur=window.scrollY;
+  if(cur>lastScroll+25){
+    document.getElementById('panel-learn').classList.remove('open');
+    document.getElementById('panel-quiz').classList.remove('open');
+    document.getElementById('tab-learn').classList.remove('on');
+    document.getElementById('tab-quiz').classList.remove('on');
+  }
+  lastScroll=cur<0?0:cur;
+},{passive:true});
 
 function togglePanel(which){
   var isOpen=document.getElementById('panel-'+which).classList.contains('open');
-  // Close both
   document.getElementById('panel-learn').classList.remove('open');
   document.getElementById('panel-quiz').classList.remove('open');
   document.getElementById('tab-learn').classList.remove('on');
   document.getElementById('tab-quiz').classList.remove('on');
-  // Open clicked one if it was closed
   if(!isOpen){
     document.getElementById('panel-'+which).classList.add('open');
     document.getElementById('tab-'+which).classList.add('on');
   }
 }
 
+/* Gecko Profe messages */
+var geckoMsg={
+  learn1:'¡Vamos! Lektion 1 wartet auf dich! 📘',
+  learn2:'¡Buena elección! Lektion 2 beginnt! 📗',
+  learn3a:'Subjuntivo? ¡Tú puedes! 💪',
+  learn3b:'Si estudiaras... ¡aprenderías! 📙',
+  learn3c:'Cuando termines... ¡serás B2! 🌟',
+  quiz1:'¡A practicar! Viel Erfolg! 🎯',
+  quiz2:'¡Había que intentarlo! Los geht\'s! 🎯',
+  quiz3a:'Espero que lo hagas muy bien! 🎯',
+  quiz3b:'¡Si pudieras... lo harías perfecto! 🎯',
+  quiz3c:'¡Ojalá saques un 10! Suerte! 🎯'
+};
+
+function setGecko(p){
+  var b=document.getElementById('hero-bubble');
+  if(b&&geckoMsg[p])b.textContent=geckoMsg[p];
+}
+
 function showPg(p){
-  // Hide all pages
   document.querySelectorAll('.pg').forEach(function(e){e.classList.remove('on')});
   document.getElementById('pg-'+p).classList.add('on');
 
-  // Highlight correct nav item
   document.querySelectorAll('.nitem').forEach(function(b){b.classList.remove('on')});
   var ni=document.getElementById('ni-'+p);
   if(ni)ni.classList.add('on');
 
-  // Keep correct tab + panel open
   var isLearn=learnPages.indexOf(p)>-1;
   document.getElementById('panel-learn').classList.toggle('open',isLearn);
   document.getElementById('panel-quiz').classList.toggle('open',!isLearn);
   document.getElementById('tab-learn').classList.toggle('on',isLearn);
   document.getElementById('tab-quiz').classList.toggle('on',!isLearn);
 
-  // Start quiz engine if needed
+  setGecko(p);
+
   var qmap={'quiz1':'q1','quiz2':'q2','quiz3a':'q3a','quiz3b':'q3b','quiz3c':'q3c'};
   if(qmap[p])engines[qmap[p]].start();
 
-  // Scroll to top but keep nav visible
   window.scrollTo(0,0);
+  lastScroll=0;
 }
 
 function startQ(id){engines[id].start();}
+
 
 </script>
 
