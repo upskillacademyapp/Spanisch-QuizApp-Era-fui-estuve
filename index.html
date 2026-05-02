@@ -48,59 +48,63 @@ min-height:100vh;
 
 /* ── NAV ── */
 nav{
-background:var(–blue4);
+background:var(–white);
+border-bottom:2px solid var(–border);
 display:flex;
 align-items:center;
-gap:6px;
-padding:0 16px;
+gap:8px;
+padding:0 18px;
 position:sticky;
 top:0;
 z-index:300;
-min-height:54px;
-box-shadow:0 2px 10px rgba(0,0,0,.25);
+min-height:56px;
+box-shadow:0 2px 10px rgba(0,0,0,.07);
 flex-wrap:wrap;
 }
 .nav-brand{
 font-size:1.05rem;
-font-weight:700;
-color:#ffffff;
+font-weight:800;
+color:var(–blue4);
 margin-right:8px;
 white-space:nowrap;
 letter-spacing:-.01em;
+display:flex;
+align-items:center;
+gap:6px;
 }
-.nav-brand em{color:#f0c84a;font-style:normal;}
+.nav-brand em{color:var(–blue);font-style:normal;}
 .nav-btn{
-background:transparent;
-border:2px solid rgba(255,255,255,.3);
-color:rgba(255,255,255,.85);
+background:var(–bg);
+border:2px solid var(–border);
+color:var(–mid);
 font-family:inherit;
 font-size:.82rem;
-font-weight:600;
-padding:7px 16px;
+font-weight:700;
+padding:7px 18px;
 border-radius:22px;
 cursor:pointer;
 transition:all .18s;
 white-space:nowrap;
 min-height:38px;
 }
-.nav-btn:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.6);color:#fff;}
-.nav-btn.active{background:#f0c84a;color:var(–blue4);border-color:#f0c84a;font-weight:700;}
+.nav-btn:hover{background:var(–blue3);border-color:var(–blue2);color:var(–blue4);}
+.nav-btn.active{background:var(–blue4);color:#fff;border-color:var(–blue4);}
 .nav-spacer{flex:1;}
 
 /* ── HERO ── */
 .hero{
-background:linear-gradient(160deg,var(–blue4) 0%,var(–blue) 100%);
-color:#fff;
+background:linear-gradient(160deg,var(–blue3) 0%,#eef6fb 60%,var(–gold-bg) 100%);
 text-align:center;
-padding:52px 20px 72px;
+padding:48px 20px 68px;
 position:relative;
 overflow:hidden;
+border-bottom:2px solid var(–border);
 }
 .hero::after{
 content:’’;
 position:absolute;
 bottom:-1px;left:0;right:0;
-height:48px;
+height:44px;
 background:var(–white);
 clip-path:ellipse(55% 100% at 50% 100%);
 }
@@ -111,10 +115,11 @@ line-height:1.1;
 margin-bottom:12px;
 position:relative;
 letter-spacing:-.02em;
+color:var(–blue4);
 }
-.hero h1 em{color:#f0c84a;font-style:italic;}
+.hero h1 em{color:var(–gold2);font-style:italic;}
 .hero-sub{
-color:rgba(255,255,255,.78);
+color:var(–mid);
 font-size:.97rem;
 max-width:420px;
 margin:0 auto 26px;
@@ -134,11 +139,14 @@ border-radius:20px;
 font-size:.78rem;
 font-weight:700;
 letter-spacing:.06em;
-background:rgba(255,255,255,.15);
-color:#fff;
-border:1.5px solid rgba(255,255,255,.35);
+background:var(–white);
+color:var(–blue);
+border:2px solid var(–blue);
 }
-.pill.gold{background:rgba(240,200,74,.2);color:#f0c84a;border-color:#f0c84a;}
+.pill.gold  {background:var(–gold-bg);color:var(–gold);border-color:var(–gold2);}
+.pill.green {background:#e8f7ef;color:var(–green-acc);border-color:var(–green-acc);}
+.pill.orange{background:#fef4ee;color:var(–orange-acc);border-color:var(–orange-acc);}
+.pill.purple{background:#f4f0fa;color:var(–purple-acc);border-color:var(–purple-acc);}
 
 /* ── PAGES ── */
 .page{display:none;max-width:860px;margin:0 auto;padding:40px 16px 80px;}
@@ -548,7 +556,7 @@ table{min-width:460px;}
 <!-- NAV -->
 
 <nav>
-  <span class="nav-brand">🌴 <em>Español</em></span>
+  <span class="nav-brand">🇮🇨 <em>Español</em></span>
   <button class="nav-btn active" onclick="showPage('learn')">📖 Lernen</button>
   <button class="nav-btn" onclick="showPage('quiz')">🎯 Quiz</button>
   <div class="nav-spacer"></div>
@@ -560,12 +568,12 @@ table{min-width:460px;}
   <div class="pills">
     <span class="pill gold">ERA</span>
     <span class="pill">ESTABA</span>
-    <span class="pill">ESTUVE</span>
-    <span class="pill">FUI</span>
-    <span class="pill">FUE</span>
+    <span class="pill green">ESTUVE</span>
+    <span class="pill orange">FUI</span>
+    <span class="pill purple">FUE</span>
   </div>
   <h1>Wann benutze ich<br><em>was?</em></h1>
-  <p class="hero-sub">Die spanische Vergangenheit – klar erklärt mit Alltagsbeispielen 🌊</p>
+  <p class="hero-sub">Die spanische Vergangenheit – klar erklärt mit Alltagsbeispielen aus Teneriffa 🌊</p>
 </div>
 
 <!-- ══════════ LERNSEITE ══════════ -->
