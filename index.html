@@ -4,205 +4,187 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Espanol Quiz – ERA ESTABA ESTUVE FUI FUE</title>
+<title>Español Quiz – ERA · HABÍA · Pluscuamperfecto</title>
 <style>
-/* === RESET === */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:#ffffff;color:#0f1923;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;min-height:100vh;-webkit-text-size-adjust:100%}
 
-/* === NAV === */
-#topnav{background:#ffffff;border-bottom:2px solid #d0d8df;display:flex;align-items:center;gap:8px;padding:0 18px;position:sticky;top:0;z-index:300;min-height:56px;box-shadow:0 2px 8px rgba(0,0,0,.07);flex-wrap:wrap}
-#topnav .brand{font-size:1.05rem;font-weight:800;color:#0d3d52;margin-right:8px;white-space:nowrap;display:flex;align-items:center;gap:5px}
-#topnav .brand span{color:#1a5f7a}
-.nbtn{background:#f6f7f9;border:2px solid #d0d8df;color:#3a4a56;font-family:inherit;font-size:.83rem;font-weight:700;padding:7px 18px;border-radius:22px;cursor:pointer;transition:background .15s,border-color .15s,color .15s;white-space:nowrap;min-height:38px}
+/* NAV */
+#topnav{background:#ffffff;border-bottom:2px solid #d0d8df;display:flex;align-items:center;gap:6px;padding:0 16px;position:sticky;top:0;z-index:300;min-height:54px;box-shadow:0 2px 8px rgba(0,0,0,.07);flex-wrap:wrap}
+.brand{font-size:1rem;font-weight:800;color:#0d3d52;margin-right:6px;white-space:nowrap;display:flex;align-items:center;gap:5px}
+.brand span{color:#1a5f7a}
+.nbtn{background:#f6f7f9;border:2px solid #d0d8df;color:#3a4a56;font-family:inherit;font-size:.8rem;font-weight:700;padding:6px 14px;border-radius:22px;cursor:pointer;transition:all .15s;white-space:nowrap;min-height:36px}
 .nbtn:hover{background:#daeef6;border-color:#2a7fa0;color:#0d3d52}
 .nbtn.on{background:#0d3d52;color:#ffffff;border-color:#0d3d52}
 
-/* === HERO === */
-#hero{background:linear-gradient(160deg,#daeef6 0%,#eef6fb 55%,#fdf3d0 100%);text-align:center;padding:48px 20px 68px;position:relative;overflow:hidden;border-bottom:2px solid #d0d8df}
+/* HERO */
+#hero{background:linear-gradient(160deg,#daeef6 0%,#eef6fb 55%,#fdf3d0 100%);text-align:center;padding:44px 20px 64px;position:relative;overflow:hidden;border-bottom:2px solid #d0d8df}
 #hero::after{content:””;position:absolute;bottom:-1px;left:0;right:0;height:44px;background:#ffffff;clip-path:ellipse(55% 100% at 50% 100%)}
-#hero h1{font-size:clamp(1.85rem,6vw,3.2rem);font-weight:800;line-height:1.1;margin-bottom:12px;position:relative;letter-spacing:-.02em;color:#0d3d52}
+#hero h1{font-size:clamp(1.7rem,5vw,3rem);font-weight:800;line-height:1.1;margin-bottom:10px;position:relative;letter-spacing:-.02em;color:#0d3d52}
 #hero h1 em{color:#b08900;font-style:italic}
-#hero p{color:#3a4a56;font-size:.97rem;max-width:420px;margin:0 auto 26px;position:relative}
-.pills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:24px;position:relative}
-.pills span{padding:5px 14px;border-radius:20px;font-size:.78rem;font-weight:700;letter-spacing:.05em}
-.p-gold  {background:#fdf3d0;color:#8a6a00;border:2px solid #b08900}
-.p-blue  {background:#ffffff;color:#1a5f7a;border:2px solid #1a5f7a}
-.p-green {background:#e8f7ef;color:#1a7a44;border:2px solid #1a7a44}
-.p-orange{background:#fef4ee;color:#884010;border:2px solid #884010}
-.p-purple{background:#f4f0fa;color:#5a3a7a;border:2px solid #5a3a7a}
-
-/* === PAGES === */
-.pg{display:none;max-width:860px;margin:0 auto;padding:40px 16px 80px}
+#hero p{color:#3a4a56;font-size:.95rem;max-width:460px;margin:0 auto 22px;position:relative}
+.pills{display:flex;gap:7px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;position:relative}
+.pills span{padding:4px 13px;border-radius:20px;font-size:.76rem;font-weight:700;letter-spacing:.05em}
+.pg{display:none;max-width:860px;margin:0 auto;padding:38px 16px 80px}
 .pg.on{display:block}
 
-/* === SECTION HEADER === */
-.sec{margin-bottom:52px}
-.sh{display:flex;align-items:center;gap:14px;margin-bottom:22px}
-.sh h2{font-size:1.55rem;font-weight:800;color:#0d3d52;white-space:nowrap;letter-spacing:-.02em}
-.sl{flex:1;height:2px;background:linear-gradient(90deg,#d0d8df,transparent)}
+/* SECTION */
+.sec{margin-bottom:50px}
+.sh{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.sh h2{font-size:1.5rem;font-weight:800;color:#0d3d52;white-space:nowrap;letter-spacing:-.02em}
+.shl{flex:1;height:2px;background:linear-gradient(90deg,#d0d8df,transparent)}
 
-/* === VERB CARDS === */
+/* VERB CARDS */
 .vc{border-radius:14px;border:2px solid #d0d8df;overflow:hidden;margin-bottom:14px;background:#ffffff;box-shadow:0 2px 12px rgba(0,0,0,.06)}
-.vh{padding:16px 20px;display:flex;align-items:center;gap:14px;border-bottom:2px solid #d0d8df}
-.vb{font-size:1.6rem;font-weight:800;line-height:1;min-width:100px;letter-spacing:-.01em}
-.vi h3{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:#6a7a86;margin-bottom:2px;font-weight:700}
-.vi p{font-size:.84rem;font-weight:600;color:#3a4a56}
-.vbody{padding:18px 20px;background:#f6f7f9}
-.vrule{font-size:.93rem;line-height:1.75;margin-bottom:14px;color:#1e2d3a}
+.vh{padding:15px 20px;display:flex;align-items:center;gap:14px;border-bottom:2px solid #d0d8df}
+.vb{font-size:1.5rem;font-weight:800;line-height:1;min-width:120px;letter-spacing:-.01em}
+.vi h3{font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;color:#6a7a86;margin-bottom:2px;font-weight:700}
+.vi p{font-size:.83rem;font-weight:600;color:#3a4a56}
+.vbody{padding:17px 20px;background:#f6f7f9}
+.vrule{font-size:.92rem;line-height:1.75;margin-bottom:13px;color:#1e2d3a}
 .vrule strong{font-weight:700;color:#0f1923}
 .exs{display:grid;gap:6px}
-.exrow{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px 14px;background:#ffffff;border-radius:9px;border:1.5px solid #d0d8df;align-items:start}
-.ees{font-size:.91rem;font-style:italic;font-weight:700;color:#1a5f7a}
-.ede{font-size:.82rem;color:#3a4a56}
+.exrow{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:9px 13px;background:#ffffff;border-radius:9px;border:1.5px solid #d0d8df;align-items:start}
+.ees{font-size:.9rem;font-style:italic;font-weight:700;color:#1a5f7a}
+.ede{font-size:.81rem;color:#3a4a56}
 
-/* verb header accent colours */
+/* verb accents */
+.havia .vh{background:#f0eefa;border-left:5px solid #6a3a9a} .havia .vb{color:#5a2a8a}
+.hubo  .vh{background:#fff0e8;border-left:5px solid #c05010} .hubo  .vb{color:#a03808}
+.habia-ido .vh{background:#e8f4fb;border-left:5px solid #1a5f7a} .habia-ido .vb{color:#0d3d52}
+/* keep old accents */
 .era   .vh{background:#fffbef;border-left:5px solid #b08900} .era   .vb{color:#8a6a00}
 .estaba .vh{background:#eef6fb;border-left:5px solid #1a5f7a} .estaba .vb{color:#1a5f7a}
 .estuve .vh{background:#eef8f2;border-left:5px solid #1a7a44} .estuve .vb{color:#1a7a44}
 .fui   .vh{background:#fef4ee;border-left:5px solid #884010} .fui   .vb{color:#884010}
 .fue   .vh{background:#f4f0fa;border-left:5px solid #5a3a7a} .fue   .vb{color:#5a3a7a}
 
-/* === INFO BOXES === */
+/* INFO BOXES */
 .ig{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
-.ib{background:#ffffff;border:2px solid #d0d8df;border-radius:12px;padding:16px 18px 16px 22px;position:relative}
+.ib{background:#ffffff;border:2px solid #d0d8df;border-radius:12px;padding:15px 17px 15px 21px;position:relative}
 .ib::before{content:””;position:absolute;top:0;left:0;bottom:0;width:5px;border-radius:10px 0 0 10px}
-.ib-gold::before{background:#b08900} .ib-blue::before{background:#1a5f7a} .ib-green::before{background:#1a7a44}
-.ibl{font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:#6a7a86;margin-bottom:7px;font-weight:700}
-.ibt{font-size:.88rem;line-height:1.65;color:#1e2d3a}
+.ib-pur::before{background:#6a3a9a} .ib-org::before{background:#c05010} .ib-blu::before{background:#1a5f7a} .ib-grn::before{background:#1a7a44}
+.ibl{font-size:.63rem;text-transform:uppercase;letter-spacing:.1em;color:#6a7a86;margin-bottom:6px;font-weight:700}
+.ibt{font-size:.87rem;line-height:1.65;color:#1e2d3a}
 .ibt strong{font-weight:700;color:#0d3d52}
 
-/* === PAIR GRID === */
-.pg2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
-.pc{background:#ffffff;border:2px solid #d0d8df;border-radius:12px;padding:16px 18px}
-.pc h4{font-size:1.3rem;font-weight:800;margin-bottom:7px;letter-spacing:-.01em}
-.pc p{font-size:.82rem;color:#3a4a56;margin-bottom:10px;line-height:1.55}
-.pex{font-style:italic;font-size:.85rem;padding:8px 11px;border-radius:8px;background:#f6f7f9;border:1.5px solid #d0d8df;margin-bottom:5px;color:#1e2d3a}
-.pex span{display:block;font-style:normal;font-size:.74rem;color:#6a7a86;margin-top:2px}
-
-/* === SIGNAL GRID === */
-.sg{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
-.sc{background:#ffffff;border:2px solid #d0d8df;border-radius:11px;padding:14px 16px}
-.sv{font-size:1.05rem;font-weight:800;margin-bottom:8px;color:#0f1923}
-.sl2{list-style:none}
-.sl2 li{font-size:.78rem;color:#3a4a56;font-weight:500;padding:4px 0;border-bottom:1px solid #d0d8df}
-.sl2 li:last-child{border-bottom:none}
-
-/* === QUICK RULE === */
-.qr{background:#0d3d52;color:#ffffff;border-radius:14px;padding:24px 28px;display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:14px}
-.qri h4{font-size:1.1rem;font-weight:800;color:#e2c270;margin-bottom:5px}
-.qri p{font-size:.83rem;color:rgba(255,255,255,.8);line-height:1.55}
-
-/* === TABLE === */
+/* TABLE */
 .tw{border-radius:12px;overflow:hidden;border:2px solid #d0d8df}
 .ts{overflow-x:auto;-webkit-overflow-scrolling:touch}
 table{width:100%;border-collapse:collapse;background:#ffffff;min-width:480px}
-thead th{background:#0d3d52;color:#ffffff;padding:12px 14px;text-align:left;font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;font-weight:700}
-tbody td{padding:12px 14px;border-bottom:1.5px solid #d0d8df;font-size:.86rem;vertical-align:top;line-height:1.5;color:#0f1923}
+thead th{background:#0d3d52;color:#ffffff;padding:11px 13px;text-align:left;font-size:.71rem;text-transform:uppercase;letter-spacing:.07em;font-weight:700}
+tbody td{padding:11px 13px;border-bottom:1.5px solid #d0d8df;font-size:.85rem;vertical-align:top;line-height:1.5;color:#0f1923}
 tbody tr:last-child td{border-bottom:none}
 tbody tr:hover td{background:#f6f7f9}
-td:first-child{font-size:1.1rem;font-weight:800;width:90px}
-.tg{color:#8a6a00} .tb{color:#1a5f7a} .tgr{color:#1a7a44} .to{color:#884010} .tp{color:#5a3a7a}
+td:first-child{font-size:1rem;font-weight:800;width:130px}
+.tpur{color:#5a2a8a} .torg{color:#a03808} .tblu{color:#0d3d52}
 
-/* === QUIZ BANNER === */
-.qbanner{background:linear-gradient(135deg,#0d3d52,#1a5f7a);border-radius:16px;padding:36px 28px;text-align:center;color:#ffffff;margin-top:48px;position:relative;overflow:hidden}
+/* QUICK RULE */
+.qrbox{background:#0d3d52;color:#ffffff;border-radius:14px;padding:22px 26px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px}
+.qri h4{font-size:1rem;font-weight:800;color:#e2c270;margin-bottom:4px}
+.qri p{font-size:.81rem;color:rgba(255,255,255,.78);line-height:1.5}
+
+/* QUIZ BANNER */
+.qbanner{background:linear-gradient(135deg,#0d3d52,#1a5f7a);border-radius:16px;padding:32px 24px;text-align:center;color:#ffffff;margin-top:44px;position:relative;overflow:hidden}
 .qbanner::before{content:“🇮🇨”;position:absolute;font-size:5rem;opacity:.1;left:-8px;top:-4px;line-height:1}
 .qbanner::after{content:“🇮🇨”;position:absolute;font-size:5rem;opacity:.1;right:-8px;bottom:-14px;transform:scaleX(-1);line-height:1}
-.qbanner h3{font-size:1.7rem;font-weight:800;color:#e2c270;margin-bottom:8px;position:relative}
-.qbanner p{color:rgba(255,255,255,.78);font-size:.92rem;margin-bottom:20px;position:relative}
-.gbtn{display:inline-block;background:#c9a000;color:#ffffff;font-family:inherit;font-size:1rem;font-weight:700;padding:13px 32px;border-radius:11px;border:none;cursor:pointer;transition:background .2s,transform .2s;box-shadow:0 4px 14px rgba(0,0,0,.2);position:relative}
+.qbanner h3{font-size:1.6rem;font-weight:800;color:#e2c270;margin-bottom:7px;position:relative}
+.qbanner p{color:rgba(255,255,255,.75);font-size:.9rem;margin-bottom:18px;position:relative}
+.gbtn{display:inline-block;background:#c9a000;color:#ffffff;font-family:inherit;font-size:.97rem;font-weight:700;padding:12px 30px;border-radius:11px;border:none;cursor:pointer;transition:background .2s,transform .2s;position:relative}
 .gbtn:hover{background:#b08900;transform:translateY(-2px)}
 
-/* === QUIZ META BAR === */
-.qmeta{display:flex;align-items:center;gap:12px;background:#ffffff;border:2px solid #d0d8df;border-radius:12px;padding:13px 18px;margin-bottom:22px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
-.qml{font-size:.76rem;color:#6a7a86;font-weight:700;white-space:nowrap}
+/* QUIZ META */
+.qmeta{display:flex;align-items:center;gap:12px;background:#ffffff;border:2px solid #d0d8df;border-radius:12px;padding:12px 17px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.qml{font-size:.75rem;color:#6a7a86;font-weight:700;white-space:nowrap}
 .pt{flex:1;height:9px;background:#d0d8df;border-radius:5px;overflow:hidden}
 .pf{height:100%;background:linear-gradient(90deg,#1a5f7a,#2a7fa0);border-radius:5px;transition:width .4s ease;width:0%}
-.qs{font-size:1rem;font-weight:800;color:#0d3d52;white-space:nowrap}
+.qs{font-size:.97rem;font-weight:800;color:#0d3d52;white-space:nowrap}
 
-/* === QUESTION CARD === */
-.qcard{background:#ffffff;border:2px solid #d0d8df;border-radius:16px;padding:26px 22px;margin-bottom:16px;box-shadow:0 2px 12px rgba(0,0,0,.05);transition:border-color .25s}
-.qcard.ok{border-color:#5aaa7a;box-shadow:0 2px 12px rgba(90,170,122,.18)}
-.qcard.err{border-color:#e07060;box-shadow:0 2px 12px rgba(224,112,96,.18)}
+/* QUESTION CARD */
+.qcard{background:#ffffff;border:2px solid #d0d8df;border-radius:16px;padding:24px 20px;margin-bottom:15px;box-shadow:0 2px 12px rgba(0,0,0,.05);transition:border-color .25s}
+.qcard.ok{border-color:#5aaa7a!important;box-shadow:0 2px 12px rgba(90,170,122,.18)!important}
+.qcard.err{border-color:#e07060!important;box-shadow:0 2px 12px rgba(224,112,96,.18)!important}
+.qnum{font-size:.67rem;color:#6a7a86;letter-spacing:.1em;text-transform:uppercase;margin-bottom:11px;font-weight:700}
+.qlbl{display:inline-block;font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#6a7a86;margin-bottom:3px}
+.qde{font-size:.92rem;color:#3a4a56;font-style:italic;margin-bottom:9px;padding:9px 13px;background:#f6f7f9;border-radius:9px;border-left:4px solid #d0d8df}
+.qlbl2{display:inline-block;font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#1a5f7a;margin-bottom:3px}
+.qes{font-size:1.05rem;font-weight:700;color:#0f1923;margin-bottom:18px;padding:13px 15px;background:#daeef6;border-radius:10px;border:2px solid #b0d8ec;line-height:1.7;word-break:break-word}
+.blank{display:inline-block;min-width:110px;padding:2px 8px;background:#ffffff;border:2px dashed #1a5f7a;border-radius:6px;color:#1a5f7a;font-weight:800;text-align:center;font-style:italic;margin:0 2px;transition:all .25s;vertical-align:middle}
+.qcard.ok  .blank{border-style:solid!important;border-color:#5aaa7a!important;color:#155c30!important;background:#e2f4eb!important}
+.qcard.err .blank{border-style:solid!important;border-color:#e07060!important;color:#8c1a08!important;background:#fce8e4!important}
 
-.qnum{font-size:.68rem;color:#6a7a86;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px;font-weight:700}
-
-.qlbl{display:inline-block;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#6a7a86;margin-bottom:4px}
-
-.qde{font-size:.93rem;color:#3a4a56;font-style:italic;margin-bottom:10px;padding:10px 14px;background:#f6f7f9;border-radius:9px;border-left:4px solid #d0d8df}
-
-.qlbl2{display:inline-block;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#1a5f7a;margin-bottom:4px}
-.qes{font-size:1.08rem;font-weight:700;color:#0f1923;margin-bottom:20px;padding:14px 16px;background:#daeef6;border-radius:10px;border:2px solid #b0d8ec;line-height:1.7;word-break:break-word}
-
-.blank{display:inline-block;min-width:100px;padding:2px 8px;background:#ffffff;border:2px dashed #1a5f7a;border-radius:6px;color:#1a5f7a;font-weight:800;text-align:center;font-style:italic;margin:0 2px;transition:all .25s;vertical-align:middle}
-.qcard.ok  .blank{border-style:solid;border-color:#5aaa7a;color:#155c30;background:#e2f4eb}
-.qcard.err .blank{border-style:solid;border-color:#e07060;color:#8c1a08;background:#fce8e4}
-
-/* === OPTIONS === */
-.opts{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
-.opt{background:#ffffff;border:2px solid #d0d8df;border-radius:11px;color:#1e2d3a;font-family:inherit;font-size:.97rem;font-weight:700;padding:13px 10px;cursor:pointer;transition:background .15s,border-color .15s,color .15s,transform .12s;text-align:center;min-height:48px}
+/* OPTIONS */
+.opts{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.opt{background:#ffffff;border:2px solid #d0d8df;border-radius:11px;color:#1e2d3a;font-family:inherit;font-size:.95rem;font-weight:700;padding:12px 10px;cursor:pointer;transition:all .15s;text-align:center;min-height:46px}
 .opt:hover:not([disabled]){background:#daeef6;border-color:#1a5f7a;color:#0d3d52;transform:translateY(-1px)}
 .opt.sok {background:#e2f4eb!important;border-color:#5aaa7a!important;color:#155c30!important}
 .opt.serr{background:#fce8e4!important;border-color:#e07060!important;color:#8c1a08!important}
 .opt.sshw{background:#e2f4eb!important;border-color:#5aaa7a!important;color:#155c30!important}
 .opt[disabled]{cursor:not-allowed}
 
-/* === FEEDBACK === */
-.fb{margin-top:14px;padding:13px 16px;border-radius:10px;font-size:.86rem;line-height:1.6;display:none}
+/* FEEDBACK */
+.fb{margin-top:12px;padding:12px 15px;border-radius:10px;font-size:.85rem;line-height:1.6;display:none}
 .fb.on{display:block}
-.fb.fok {background:#e2f4eb;color:#155c30;border:2px solid #5aaa7a}
-.fb.ferr{background:#fce8e4;color:#8c1a08;border:2px solid #e07060}
+.fb.fok {background:#e2f4eb!important;color:#155c30!important;border:2px solid #5aaa7a!important}
+.fb.ferr{background:#fce8e4!important;color:#8c1a08!important;border:2px solid #e07060!important}
 
-/* === RESULT === */
-#resbox{display:none;text-align:center;padding:48px 24px;background:#ffffff;border:2px solid #d0d8df;border-radius:20px;box-shadow:0 4px 24px rgba(0,0,0,.07);max-width:460px;margin:0 auto}
+/* RESULT BOX */
+#resbox{display:none;background:#ffffff;border:2px solid #d0d8df;border-radius:20px;padding:36px 24px;box-shadow:0 4px 24px rgba(0,0,0,.07);max-width:680px;margin:0 auto}
 #resbox.on{display:block}
-#resemoji{font-size:3.6rem;margin-bottom:16px}
-#restitle{font-size:1.8rem;font-weight:800;color:#0d3d52;margin-bottom:8px}
-#resscore{font-size:3rem;font-weight:300;color:#0f1923;margin:16px 0}
+.res-top{text-align:center;margin-bottom:32px}
+#resemoji{font-size:3.4rem;margin-bottom:14px}
+#restitle{font-size:1.7rem;font-weight:800;color:#0d3d52;margin-bottom:6px}
+#resscore{font-size:2.8rem;font-weight:300;color:#0f1923;margin:14px 0}
 #resscore span{color:#1a5f7a;font-weight:800}
-#resmsg{color:#3a4a56;font-size:.92rem;line-height:1.65;margin-bottom:26px}
-.rbtn{background:#0d3d52;color:#ffffff;border:none;font-family:inherit;font-size:1rem;font-weight:700;padding:13px 32px;border-radius:11px;cursor:pointer;transition:background .2s,transform .2s;box-shadow:0 4px 12px rgba(13,61,82,.25)}
+#resmsg{color:#3a4a56;font-size:.91rem;line-height:1.65;margin-bottom:8px}
+
+/* BREAKDOWN */
+.breakdown{margin-top:28px}
+.bdt{font-size:1.1rem;font-weight:800;color:#0d3d52;margin-bottom:16px;text-align:center}
+.bcard{background:#f6f7f9;border:2px solid #d0d8df;border-radius:14px;padding:18px 20px;margin-bottom:12px}
+.bcard-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px}
+.bcard-name{font-size:1rem;font-weight:800;color:#0d3d52}
+.bcard-score{font-size:.9rem;font-weight:700;padding:4px 12px;border-radius:20px}
+.score-great{background:#e2f4eb;color:#155c30}
+.score-ok   {background:#fdf3d0;color:#8a6000}
+.score-weak {background:#fce8e4;color:#8c1a08}
+.bbar-bg{height:10px;background:#d0d8df;border-radius:5px;overflow:hidden;margin-bottom:8px}
+.bbar-fill{height:100%;border-radius:5px;transition:width .6s ease}
+.bcard-tip{font-size:.82rem;color:#3a4a56;line-height:1.55}
+.bcard-tip strong{font-weight:700;color:#0d3d52}
+
+.rbtn{display:block;width:100%;background:#0d3d52;color:#ffffff;border:none;font-family:inherit;font-size:1rem;font-weight:700;padding:13px;border-radius:11px;cursor:pointer;transition:background .2s,transform .2s;margin-top:24px}
 .rbtn:hover{background:#1a5f7a;transform:translateY(-2px)}
 
-/* === MOBILE === */
+/* MOBILE */
 @media(max-width:600px){
-#topnav{padding:0 12px;gap:4px;min-height:50px}
-.nbtn{font-size:.78rem;padding:6px 12px;min-height:36px}
-#hero{padding:36px 16px 58px}
-#hero h1{font-size:1.72rem}
-#hero p{font-size:.88rem}
-.pg{padding:26px 14px 70px}
-.sh h2{font-size:1.22rem}
+#topnav{padding:0 10px;gap:4px;min-height:50px}
+.brand{font-size:.88rem;margin-right:2px}
+.nbtn{font-size:.74rem;padding:5px 10px;min-height:34px}
+#hero{padding:32px 14px 54px}
+#hero h1{font-size:1.65rem}
+.pg{padding:24px 13px 70px}
+.sh h2{font-size:1.18rem}
 .vh{padding:12px 14px;gap:10px}
-.vb{font-size:1.3rem;min-width:80px}
-.vi h3{font-size:.6rem}
-.vi p{font-size:.78rem}
-.vbody{padding:14px}
-.vrule{font-size:.87rem}
-.exrow{grid-template-columns:1fr;gap:2px;padding:9px 12px}
+.vb{font-size:1.2rem;min-width:90px}
+.vbody{padding:13px}
+.exrow{grid-template-columns:1fr;gap:2px;padding:8px 11px}
 .ig{grid-template-columns:1fr}
-.pg2{grid-template-columns:1fr}
-.qr{grid-template-columns:1fr;padding:18px 18px}
-.sg{grid-template-columns:1fr 1fr}
-.qmeta{padding:11px 14px;gap:8px}
+.qrbox{grid-template-columns:1fr;padding:16px}
+.qmeta{padding:10px 13px;gap:8px}
 .qml{display:none}
-.qs{font-size:.9rem}
-.qcard{padding:18px 14px}
-.qde{font-size:.86rem;padding:8px 11px}
-.qes{font-size:.97rem;padding:11px 13px}
-.blank{min-width:80px;font-size:.9rem}
+.qcard{padding:16px 13px}
 .opts{grid-template-columns:1fr 1fr}
-.opt{font-size:.88rem;padding:11px 8px;min-height:44px}
-#resbox{padding:36px 18px}
-#restitle{font-size:1.5rem}
-#resscore{font-size:2.5rem}
-.qbanner{padding:26px 18px}
-.qbanner h3{font-size:1.35rem}
+.opt{font-size:.86rem;padding:10px 7px;min-height:42px}
+#resbox{padding:28px 16px}
+#restitle{font-size:1.45rem}
+#resscore{font-size:2.4rem}
+.bcard{padding:14px 15px}
 }
 @media(max-width:360px){
 .opts{grid-template-columns:1fr}
-.sg{grid-template-columns:1fr}
+.nbtn{font-size:.7rem;padding:5px 8px}
 }
 </style>
 
@@ -213,39 +195,41 @@ td:first-child{font-size:1.1rem;font-weight:800;width:90px}
 
 <div id="topnav">
   <span class="brand">🇮🇨 <span>Español</span></span>
-  <button class="nbtn on" onclick="showPg('learn')">📖 Lernen</button>
-  <button class="nbtn" onclick="showPg('quiz')">🎯 Quiz</button>
+  <button class="nbtn on"  onclick="showPg('learn1')">📖 Lektion 1</button>
+  <button class="nbtn"     onclick="showPg('learn2')">📖 Lektion 2</button>
+  <button class="nbtn"     onclick="showPg('quiz1')">🎯 Quiz 1</button>
+  <button class="nbtn"     onclick="showPg('quiz2')">🎯 Quiz 2</button>
 </div>
 
 <!-- HERO -->
 
 <div id="hero">
   <div class="pills">
-    <span class="p-gold">ERA</span>
-    <span class="p-blue">ESTABA</span>
-    <span class="p-green">ESTUVE</span>
-    <span class="p-orange">FUI</span>
-    <span class="p-purple">FUE</span>
+    <span style="background:#fdf3d0;color:#8a6a00;border:2px solid #b08900">ERA</span>
+    <span style="background:#ffffff;color:#1a5f7a;border:2px solid #1a5f7a">ESTABA</span>
+    <span style="background:#e8f7ef;color:#1a7a44;border:2px solid #1a7a44">ESTUVE</span>
+    <span style="background:#fef4ee;color:#884010;border:2px solid #884010">FUI/FUE</span>
+    <span style="background:#f0eefa;color:#5a2a8a;border:2px solid #6a3a9a">HABÍA</span>
+    <span style="background:#e8f4fb;color:#0d3d52;border:2px solid #1a5f7a">HABÍA IDO</span>
   </div>
   <h1>Wann benutze ich<br><em>was?</em></h1>
-  <p>Die spanische Vergangenheit – klar erklärt mit Alltagsbeispielen 🌊</p>
+  <p>Spanische Vergangenheit – zwei Lektionen, zwei Quizzes 🌊</p>
 </div>
 
-<!-- ═══════════════ LERNSEITE ═══════════════ -->
+<!-- ═══════ LEKTION 1: ERA/ESTABA/ESTUVE/FUI/FUE ═══════ -->
 
-<div class="pg on" id="pg-learn">
+<div class="pg on" id="pg-learn1">
 
   <div class="sec">
-    <div class="sh"><h2>Die fünf Formen</h2><div class="sl"></div></div>
+    <div class="sh"><h2>Lektion 1 – Die fünf Formen</h2><div class="shl"></div></div>
 
 ```
 <div class="vc era">
-  <div class="vh"><div class="vb">ERA</div><div class="vi"><h3>Imperfecto · SER</h3><p>Eigenschaft · Rolle · generelle Beschreibung</p></div></div>
+  <div class="vh"><div class="vb">ERA</div><div class="vi"><h3>Imperfecto · SER</h3><p>Eigenschaft · Rolle · generelle Beschreibung · kein Ende</p></div></div>
   <div class="vbody">
     <p class="vrule">Benutze ERA wenn du beschreibst <strong>wie jemand oder etwas grundsätzlich war</strong> – eine Eigenschaft, eine Rolle, ein Dauerzustand ohne klares Ende.</p>
     <div class="exs">
-      <div class="exrow"><div class="ees">Era mi jefa.</div><div class="ede">Sie war meine Chefin. (ihre Rolle)</div></div>
-      <div class="exrow"><div class="ees">Era muy difícil.</div><div class="ede">Es war sehr schwierig. (generell)</div></div>
+      <div class="exrow"><div class="ees">Era mi jefa.</div><div class="ede">Sie war meine Chefin.</div></div>
       <div class="exrow"><div class="ees">Antes era muy tímida.</div><div class="ede">Früher war ich sehr schüchtern.</div></div>
       <div class="exrow"><div class="ees">De niña, era muy organizada.</div><div class="ede">Als Kind war sie sehr organisiert.</div></div>
       <div class="exrow"><div class="ees">Era tarde cuando llegué.</div><div class="ede">Es war spät, als ich ankam.</div></div>
@@ -256,11 +240,9 @@ td:first-child{font-size:1.1rem;font-weight:800;width:90px}
 <div class="vc estaba">
   <div class="vh"><div class="vb">ESTABA</div><div class="vi"><h3>Imperfecto · ESTAR</h3><p>Zustand · Ort als Hintergrund · vorübergehend</p></div></div>
   <div class="vbody">
-    <p class="vrule">ESTABA beschreibt einen <strong>Zustand oder Ort in einem bestimmten Moment</strong> – als Hintergrund. Typisch: „Als X passierte, war ich gerade …"</p>
+    <p class="vrule">ESTABA beschreibt einen <strong>Zustand oder Ort in einem bestimmten Moment</strong> – als Hintergrund. „Als X passierte, war ich gerade …"</p>
     <div class="exs">
       <div class="exrow"><div class="ees">Cuando llegaste, estaba en casa.</div><div class="ede">Als du ankamst, war ich zuhause.</div></div>
-      <div class="exrow"><div class="ees">Al principio no estaba allí.</div><div class="ede">Am Anfang war ich noch nicht dort.</div></div>
-      <div class="exrow"><div class="ees">¿Dónde estabas? ¡Te buscaba!</div><div class="ede">Wo warst du? Ich hab dich gesucht!</div></div>
       <div class="exrow"><div class="ees">La oficina ya estaba vacía.</div><div class="ede">Das Büro war schon leer.</div></div>
       <div class="exrow"><div class="ees">Cuando sonó el teléfono, estaba en una reunión.</div><div class="ede">Als das Telefon klingelte, war ich in einer Besprechung.</div></div>
     </div>
@@ -270,41 +252,24 @@ td:first-child{font-size:1.1rem;font-weight:800;width:90px}
 <div class="vc estuve">
   <div class="vh"><div class="vb">ESTUVE</div><div class="vi"><h3>Indefinido · ESTAR</h3><p>Ort · Zustand · abgeschlossen · Zeitraum vorbei</p></div></div>
   <div class="vbody">
-    <p class="vrule">ESTUVE benutzt man wenn man an einem Ort war und <strong>diese Zeit klar abgeschlossen ist</strong>. Klarer Zeitraum – letzte Woche, kurz, den ganzen Tag – jetzt vorbei.</p>
+    <p class="vrule">ESTUVE: man war an einem Ort und <strong>diese Zeit ist klar abgeschlossen</strong>. Letzte Woche, kurz, den ganzen Tag – jetzt vorbei.</p>
     <div class="exs">
       <div class="exrow"><div class="ees">La semana pasada estuve en el médico.</div><div class="ede">Letzte Woche war ich beim Arzt.</div></div>
-      <div class="exrow"><div class="ees">Estuve solo un momento en la oficina.</div><div class="ede">Ich war nur kurz im Büro.</div></div>
       <div class="exrow"><div class="ees">Estuve todo el día trabajando.</div><div class="ede">Ich war den ganzen Tag am Arbeiten.</div></div>
       <div class="exrow"><div class="ees">Durante la reunión estuve tranquila.</div><div class="ede">Während des Meetings war ich ruhig.</div></div>
-      <div class="exrow"><div class="ees">¿Estuviste ayer en la fiesta?</div><div class="ede">Warst du gestern auf der Party?</div></div>
     </div>
   </div>
 </div>
 
 <div class="vc fui">
-  <div class="vh"><div class="vb">FUI</div><div class="vi"><h3>Indefinido · IR + SER</h3><p>Aktion · Bewegung · Identität · abgeschlossen</p></div></div>
+  <div class="vh"><div class="vb">FUI / FUE</div><div class="vi"><h3>Indefinido · IR + SER</h3><p>Aktion · Bewegung · Identität · Ereignis · abgeschlossen</p></div></div>
   <div class="vbody">
-    <p class="vrule">FUI ist Vergangenheit von <strong>IR (gehen)</strong> und <strong>SER (sein – Identität)</strong>. Bedeutung aus dem Kontext. Immer abgeschlossen.</p>
+    <p class="vrule"><strong>FUI</strong> = Ich ging / Ich war es (Identität). <strong>FUE</strong> = Er/Sie ging / Es war (konkretes Ereignis). Immer abgeschlossen.</p>
     <div class="exs">
       <div class="exrow"><div class="ees">Ayer fui de compras.</div><div class="ede">Ich war gestern einkaufen.</div></div>
-      <div class="exrow"><div class="ees">Fui al médico.</div><div class="ede">Ich ging zum Arzt.</div></div>
       <div class="exrow"><div class="ees">¡No fui yo!</div><div class="ede">Ich war das nicht!</div></div>
-      <div class="exrow"><div class="ees">Fui a la playa el domingo.</div><div class="ede">Ich war am Sonntag am Strand.</div></div>
-      <div class="exrow"><div class="ees">¿Fuiste ayer al trabajo?</div><div class="ede">Bist du gestern zur Arbeit gegangen?</div></div>
-    </div>
-  </div>
-</div>
-
-<div class="vc fue">
-  <div class="vh"><div class="vb">FUE</div><div class="vi"><h3>Indefinido · SER – 3. Person</h3><p>Konkretes Ereignis · „diesmal so" · abgeschlossen</p></div></div>
-  <div class="vbody">
-    <p class="vrule">FUE beschreibt ein <strong>konkretes abgeschlossenes Ereignis</strong>. <strong>ERA = immer so &nbsp;·&nbsp; FUE = diesmal so.</strong></p>
-    <div class="exs">
-      <div class="exrow"><div class="ees">¡Fue un día muy largo!</div><div class="ede">Es war ein sehr langer Tag!</div></div>
+      <div class="exrow"><div class="ees">Fue un día muy largo.</div><div class="ede">Es war ein sehr langer Tag.</div></div>
       <div class="exrow"><div class="ees">La conversación fue incómoda.</div><div class="ede">Das Gespräch war unangenehm.</div></div>
-      <div class="exrow"><div class="ees">Fue un error.</div><div class="ede">Es war ein Fehler.</div></div>
-      <div class="exrow"><div class="ees">La reunión fue a las 10.</div><div class="ede">Das Meeting war um 10 Uhr.</div></div>
-      <div class="exrow"><div class="ees">Fue muy difícil para mí.</div><div class="ede">Es war sehr schwer für mich.</div></div>
     </div>
   </div>
 </div>
@@ -312,240 +277,464 @@ td:first-child{font-size:1.1rem;font-weight:800;width:90px}
 
   </div>
 
-  <!-- UNTERSCHIED -->
-
-  <div class="sec">
-    <div class="sh"><h2>Der kniffligste Unterschied</h2><div class="sl"></div></div>
-    <div class="pg2">
-      <div class="pc" style="border-top:4px solid #b08900">
-        <h4 class="tg">ERA</h4>
-        <p>Eigenschaft – <strong>generell, immer so</strong>. Kein Anfang, kein Ende.</p>
-        <div class="pex">Era muy organizada.<span>Sie war grundsätzlich sehr organisiert.</span></div>
-        <div class="pex">Era mi jefe.<span>Er war mein Chef. (generelle Rolle)</span></div>
-        <div class="pex">Era tarde.<span>Es war spät. (Hintergrund)</span></div>
-      </div>
-      <div class="pc" style="border-top:4px solid #1a5f7a">
-        <h4 class="tb">ESTABA</h4>
-        <p>Zustand – <strong>in diesem Moment</strong>, vorübergehend, als Hintergrund.</p>
-        <div class="pex">Estaba muy cansada.<span>Sie war (gerade) sehr müde.</span></div>
-        <div class="pex">La oficina estaba vacía.<span>Das Büro war (in dem Moment) leer.</span></div>
-        <div class="pex">Estaba en casa.<span>Ich war (gerade) zuhause.</span></div>
-      </div>
-    </div>
-    <div class="ig">
-      <div class="ib ib-gold"><div class="ibl">🌴 Eselsbrücke ERA</div><div class="ibt"><strong>ERA</strong> = „Sie war immer so" – Charakter, Rolle.<br>War das ihre generelle Art? → ERA</div></div>
-      <div class="ib ib-blue"><div class="ibl">🌊 Eselsbrücke ESTABA</div><div class="ibt"><strong>ESTABA</strong> = „Sie war gerade so" – ein Moment.<br>War das vorübergehend? → ESTABA</div></div>
-    </div>
-    <div style="margin-top:12px">
-      <div class="ib ib-green" style="border:2px solid #d0d8df">
-        <div class="ibl">⚡ Klassisches Muster</div>
-        <div class="ibt"><strong>Cuando + Indefinido → Imperfecto als Hintergrund</strong><br><br>„Als das Telefon klingelte" → <strong>sonó</strong> (Ereignis)<br>„war ich in einer Besprechung" → <strong>estaba</strong> en una reunión (Hintergrund)</div>
-      </div>
-    </div>
+  <div class="ig" style="margin-bottom:20px">
+    <div class="ib ib-grn"><div class="ibl">⚡ Kurzregel</div><div class="ibt"><strong>ERA / ESTABA</strong> = Hintergrund, Zustand, Eigenschaft – kein klares Ende.<br><strong>ESTUVE / FUI / FUE</strong> = Ereignis, Aktion – abgeschlossen.</div></div>
+    <div class="ib ib-blu"><div class="ibl">⚡ ERA vs FUE</div><div class="ibt"><strong>ERA</strong> = „Es war immer so" – generell.<br><strong>FUE</strong> = „Es war diesmal so" – konkretes Ereignis.</div></div>
   </div>
 
-  <!-- SIGNALWÖRTER -->
+  <div class="qbanner">
+    <h3>Quiz 1 starten 🎯</h3>
+    <p>50 Fragen – 10 zufällig, mit aufgeschlüsseltem Ergebnis.</p>
+    <button class="gbtn" onclick="showPg('quiz1')">→ Quiz 1 starten</button>
+  </div>
+</div>
+
+<!-- ═══════ LEKTION 2: HABÍA / HUBO / HABÍA + IDO ═══════ -->
+
+<div class="pg" id="pg-learn2">
 
   <div class="sec">
-    <div class="sh"><h2>Signalwörter</h2><div class="sl"></div></div>
-    <div class="sg">
-      <div class="sc" style="border-top:3px solid #b08900"><div class="sv tg">ERA / ESTABA</div><ul class="sl2"><li>antes – früher</li><li>siempre – immer</li><li>de niña/niño – als Kind</li><li>normalmente – normalerweise</li><li>en aquella época – damals</li><li>cuando (+ Hintergrund)</li></ul></div>
-      <div class="sc" style="border-top:3px solid #1a7a44"><div class="sv tgr">ESTUVE / FUI / FUE</div><ul class="sl2"><li>ayer – gestern</li><li>la semana pasada – letzte Woche</li><li>el lunes – am Montag</li><li>una vez – einmal</li><li>de repente – plötzlich</li><li>solo un momento – nur kurz</li></ul></div>
-      <div class="sc" style="border-top:3px solid #1a5f7a"><div class="sv tb">ESTABA / ERA</div><ul class="sl2"><li>cuando – als (+ Hintergrund)</li><li>mientras – während</li><li>al principio – am Anfang</li><li>ya – schon (Zustand)</li><li>todavía – noch</li></ul></div>
-      <div class="sc" style="border-top:3px solid #884010"><div class="sv to">FUI / FUE</div><ul class="sl2"><li>de compras – einkaufen</li><li>al médico – zum Arzt</li><li>¡No fui yo! – Ich war's nicht!</li><li>fue un error – Fehler (einmalig)</li><li>fue + Adjektiv (dieses Mal)</li></ul></div>
+    <div class="sh"><h2>Lektion 2 – HABÍA · HUBO · HABÍA + IDO</h2><div class="shl"></div></div>
+
+```
+<div class="vc havia">
+  <div class="vh"><div class="vb">HABÍA</div><div class="vi"><h3>Imperfecto · HABER</h3><p>Es gab · Hintergrund · Existenz ohne Ende</p></div></div>
+  <div class="vbody">
+    <p class="vrule">HABÍA bedeutet <strong>„es gab"</strong> – als Hintergrund, als dauerhafter Zustand in der Vergangenheit. Kein klares Ende. Genau wie ESTABA, aber für Existenz.</p>
+    <div class="exs">
+      <div class="exrow"><div class="ees">Había mucha gente en la oficina.</div><div class="ede">Es gab viele Leute im Büro.</div></div>
+      <div class="exrow"><div class="ees">No había tiempo para todo.</div><div class="ede">Es gab keine Zeit für alles.</div></div>
+      <div class="exrow"><div class="ees">Había un problema con el sistema.</div><div class="ede">Es gab ein Problem mit dem System.</div></div>
+      <div class="exrow"><div class="ees">Antes había más trabajo.</div><div class="ede">Früher gab es mehr Arbeit.</div></div>
+      <div class="exrow"><div class="ees">Había mucho ruido cuando llegué.</div><div class="ede">Es war viel Lärm, als ich ankam.</div></div>
     </div>
+  </div>
+</div>
+
+<div class="vc hubo">
+  <div class="vh"><div class="vb">HUBO</div><div class="vi"><h3>Indefinido · HABER</h3><p>Es gab · einmaliges Ereignis · abgeschlossen</p></div></div>
+  <div class="vbody">
+    <p class="vrule">HUBO = <strong>„es gab"</strong> – aber als einmaliges, abgeschlossenes Ereignis. Wie FUE, aber für Existenz. Tipp: HUBO + konkretes Ereignis.</p>
+    <div class="exs">
+      <div class="exrow"><div class="ees">Hubo un accidente en la autopista.</div><div class="ede">Es gab einen Unfall auf der Autobahn.</div></div>
+      <div class="exrow"><div class="ees">Hubo una reunión de emergencia.</div><div class="ede">Es gab ein Notfall-Meeting.</div></div>
+      <div class="exrow"><div class="ees">Ayer hubo una tormenta.</div><div class="ede">Gestern gab es ein Gewitter.</div></div>
+      <div class="exrow"><div class="ees">Hubo muchos problemas ese día.</div><div class="ede">An diesem Tag gab es viele Probleme.</div></div>
+      <div class="exrow"><div class="ees">Hubo un cambio de planes.</div><div class="ede">Es gab eine Planänderung.</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="vc habia-ido">
+  <div class="vh"><div class="vb">HABÍA + IDO</div><div class="vi"><h3>Pluscuamperfecto</h3><p>Vorvergangenheit · etwas war schon passiert · bevor etwas anderes passierte</p></div></div>
+  <div class="vbody">
+    <p class="vrule">HABÍA + Partizip (ido, comido, trabajado...) = <strong>Vorvergangenheit</strong>. Etwas war bereits passiert, bevor ein anderes Ereignis in der Vergangenheit stattfand. Deutsch: „hatte gemacht".</p>
+    <div class="exs">
+      <div class="exrow"><div class="ees">Cuando llegué, ella ya se había ido.</div><div class="ede">Als ich ankam, war sie schon gegangen.</div></div>
+      <div class="exrow"><div class="ees">No había comido nada antes de la reunión.</div><div class="ede">Ich hatte vor dem Meeting nichts gegessen.</div></div>
+      <div class="exrow"><div class="ees">Ya había enviado el correo cuando me llamó.</div><div class="ede">Ich hatte die E-Mail schon geschickt, als er anrief.</div></div>
+      <div class="exrow"><div class="ees">Nunca había trabajado en una asesoría.</div><div class="ede">Ich hatte noch nie in einer Asesoría gearbeitet.</div></div>
+      <div class="exrow"><div class="ees">El cliente había llamado tres veces.</div><div class="ede">Der Kunde hatte dreimal angerufen.</div></div>
+    </div>
+  </div>
+</div>
+```
+
+  </div>
+
+  <!-- HABÍA vs HUBO -->
+
+  <div class="sec">
+    <div class="sh"><h2>HABÍA vs. HUBO</h2><div class="shl"></div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
+      <div class="vc havia" style="margin-bottom:0">
+        <div class="vh"><div class="vb" style="font-size:1.2rem">HABÍA</div><div class="vi"><h3>Hintergrund</h3><p>Wie ESTABA – andauernd, offen</p></div></div>
+        <div class="vbody">
+          <div class="exs">
+            <div class="exrow"><div class="ees">Había mucho trabajo.</div><div class="ede">Es gab viel Arbeit. (generell)</div></div>
+            <div class="exrow"><div class="ees">Había gente esperando.</div><div class="ede">Es warteten Leute. (Hintergrund)</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="vc hubo" style="margin-bottom:0">
+        <div class="vh"><div class="vb" style="font-size:1.2rem">HUBO</div><div class="vi"><h3>Ereignis</h3><p>Wie FUE – einmalig, abgeschlossen</p></div></div>
+        <div class="vbody">
+          <div class="exs">
+            <div class="exrow"><div class="ees">Hubo un accidente.</div><div class="ede">Es gab einen Unfall. (einmalig)</div></div>
+            <div class="exrow"><div class="ees">Hubo una fiesta.</div><div class="ede">Es gab eine Party. (abgeschlossen)</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+```
+<div class="ig">
+  <div class="ib ib-pur"><div class="ibl">🟣 Eselsbrücke HABÍA</div><div class="ibt"><strong>HABÍA</strong> = „Es gab (generell)" – Hintergrund, kein Ende.<br>Frag: War das der allgemeine Zustand? → HABÍA</div></div>
+  <div class="ib ib-org"><div class="ibl">🟠 Eselsbrücke HUBO</div><div class="ibt"><strong>HUBO</strong> = „Es gab (einmalig)" – Ereignis, abgeschlossen.<br>Frag: Ist das konkret passiert? → HUBO</div></div>
+</div>
+
+<div style="margin-top:12px">
+  <div class="ib ib-blu" style="border:2px solid #d0d8df">
+    <div class="ibl">⚡ Pluscuamperfecto – wann?</div>
+    <div class="ibt">
+      <strong>HABÍA + Partizip</strong> = etwas passierte BEVOR etwas anderes passierte.<br><br>
+      „Cuando llegué (ankam)" → <strong>ya se había ido</strong> (war schon gegangen)<br>
+      Das „Gehen" war früher als das „Ankommen" → Vorvergangenheit
+    </div>
+  </div>
+</div>
+```
+
+  </div>
+
+  <!-- PARTIZIPIEN -->
+
+  <div class="sec">
+    <div class="sh"><h2>Wichtige Partizipien</h2><div class="shl"></div></div>
+    <div class="tw"><div class="ts">
+      <table>
+        <thead><tr><th>Infinitiv</th><th>Partizip</th><th>Pluscuamperfecto</th><th>Deutsch</th></tr></thead>
+        <tbody>
+          <tr><td>ir</td><td>ido</td><td>había ido</td><td>war gegangen</td></tr>
+          <tr><td>comer</td><td>comido</td><td>había comido</td><td>hatte gegessen</td></tr>
+          <tr><td>trabajar</td><td>trabajado</td><td>había trabajado</td><td>hatte gearbeitet</td></tr>
+          <tr><td>llamar</td><td>llamado</td><td>había llamado</td><td>hatte angerufen</td></tr>
+          <tr><td>enviar</td><td>enviado</td><td>había enviado</td><td>hatte geschickt</td></tr>
+          <tr><td>hacer</td><td>hecho ⚠️</td><td>había hecho</td><td>hatte gemacht</td></tr>
+          <tr><td>decir</td><td>dicho ⚠️</td><td>había dicho</td><td>hatte gesagt</td></tr>
+          <tr><td>ver</td><td>visto ⚠️</td><td>había visto</td><td>hatte gesehen</td></tr>
+          <tr><td>escribir</td><td>escrito ⚠️</td><td>había escrito</td><td>hatte geschrieben</td></tr>
+        </tbody>
+      </table>
+    </div></div>
+    <p style="font-size:.78rem;color:#6a7a86;margin-top:8px">⚠️ = unregelmäßiges Partizip</p>
   </div>
 
   <!-- KURZREGEL -->
 
   <div class="sec">
-    <div class="sh"><h2>Die Kurzregel</h2><div class="sl"></div></div>
-    <div class="qr">
-      <div class="qri"><h4>ERA / ESTABA</h4><p>Wie es war – Hintergrund, Zustand, Eigenschaft. Kein klares Ende.</p></div>
-      <div class="qri"><h4>ESTUVE / FUI / FUE</h4><p>Was passierte – Ereignis, Aktion, abgeschlossen. Klarer Zeitpunkt.</p></div>
+    <div class="sh"><h2>Die Gesamtübersicht</h2><div class="shl"></div></div>
+    <div class="qrbox">
+      <div class="qri"><h4>HABÍA</h4><p>Es gab – als Hintergrund. Kein Ende. Wie ESTABA, aber für Existenz.</p></div>
+      <div class="qri"><h4>HUBO</h4><p>Es gab – einmaliges Ereignis. Abgeschlossen. Wie FUE, aber für Existenz.</p></div>
+      <div class="qri"><h4>HABÍA + IDO</h4><p>Vorvergangenheit. Passierte bevor etwas anderes in der Vergangenheit passierte.</p></div>
     </div>
-    <div class="tw"><div class="ts">
-      <table>
-        <thead><tr><th>Form</th><th>Von</th><th>Wann benutzen?</th><th>Beispiel</th></tr></thead>
-        <tbody>
-          <tr><td class="tg">ERA</td><td>SER</td><td>Eigenschaft, Rolle, generelle Beschreibung</td><td><em>Era mi jefa.</em><br><small style="color:#6a7a86">Sie war meine Chefin.</small></td></tr>
-          <tr><td class="tb">ESTABA</td><td>ESTAR</td><td>Zustand/Ort als Hintergrund, vorübergehend</td><td><em>Estaba en casa.</em><br><small style="color:#6a7a86">Ich war zuhause (gerade).</small></td></tr>
-          <tr><td class="tgr">ESTUVE</td><td>ESTAR</td><td>Ort/Zustand, klar abgeschlossen</td><td><em>Estuve en Hamburg.</em><br><small style="color:#6a7a86">Ich war in Hamburg (vorbei).</small></td></tr>
-          <tr><td class="to">FUI</td><td>IR/SER</td><td>Aktion oder Identität – abgeschlossen</td><td><em>Fui de compras.</em><br><small style="color:#6a7a86">Ich war einkaufen.</small></td></tr>
-          <tr><td class="tp">FUE</td><td>SER/IR</td><td>Konkretes Ereignis – „diesmal so"</td><td><em>Fue un día largo.</em><br><small style="color:#6a7a86">Es war ein langer Tag.</small></td></tr>
-        </tbody>
-      </table>
-    </div></div>
   </div>
 
   <div class="qbanner">
-    <h3>Bereit zum Üben? 🎯</h3>
-    <p>50 Fragen, jedes Mal 10 zufällig – mit Erklärung nach jeder Antwort.</p>
-    <button class="gbtn" onclick="showPg('quiz')">→ Zum Quiz</button>
+    <h3>Quiz 2 starten 🎯</h3>
+    <p>50 Fragen über HABÍA, HUBO und HABÍA + IDO – mit aufgeschlüsseltem Ergebnis.</p>
+    <button class="gbtn" onclick="showPg('quiz2')">→ Quiz 2 starten</button>
   </div>
 </div>
 
-<!-- ═══════════════ QUIZ ═══════════════ -->
+<!-- ═══════ QUIZ 1 ═══════ -->
 
-<div class="pg" id="pg-quiz">
+<div class="pg" id="pg-quiz1">
   <div class="qmeta">
     <span class="qml">Fortschritt</span>
-    <div class="pt"><div class="pf" id="pf"></div></div>
-    <span class="qs" id="sd">0 / 0</span>
+    <div class="pt"><div class="pf" id="pf1"></div></div>
+    <span class="qs" id="sd1">0 / 0</span>
   </div>
-  <div id="qcon"></div>
-  <div id="resbox">
-    <div id="resemoji"></div>
-    <div id="restitle">Dein Ergebnis</div>
-    <div id="resscore"></div>
-    <div id="resmsg"></div>
-    <button class="rbtn" onclick="startQ()">🔄 Nochmal spielen</button>
+  <div id="qcon1"></div>
+  <div id="resbox1">
+    <div class="res-top">
+      <div id="resemoji1"></div>
+      <div id="restitle1">Dein Ergebnis</div>
+      <div id="resscore1"></div>
+      <div id="resmsg1"></div>
+    </div>
+    <div class="breakdown">
+      <div class="bdt">📊 Aufschlüsselung nach Thema</div>
+      <div id="breakdown1"></div>
+    </div>
+    <button class="rbtn" onclick="startQ1()">🔄 Nochmal spielen</button>
+  </div>
+</div>
+
+<!-- ═══════ QUIZ 2 ═══════ -->
+
+<div class="pg" id="pg-quiz2">
+  <div class="qmeta">
+    <span class="qml">Fortschritt</span>
+    <div class="pt"><div class="pf" id="pf2"></div></div>
+    <span class="qs" id="sd2">0 / 0</span>
+  </div>
+  <div id="qcon2"></div>
+  <div id="resbox2">
+    <div class="res-top">
+      <div id="resemoji2"></div>
+      <div id="restitle2">Dein Ergebnis</div>
+      <div id="resscore2"></div>
+      <div id="resmsg2"></div>
+    </div>
+    <div class="breakdown">
+      <div class="bdt">📊 Aufschlüsselung nach Thema</div>
+      <div id="breakdown2"></div>
+    </div>
+    <button class="rbtn" onclick="startQ2()">🔄 Nochmal spielen</button>
   </div>
 </div>
 
 <script>
-var QQ=[
-  {de:"Früher war sie sehr schüchtern.",pre:"Antes ",suf:" muy tímida.",a:"ERA",opts:["ERA","FUE","ESTABA","ESTUVE"],ex:"ERA → antes (früher) + generelle Eigenschaft = Imperfecto."},
-  {de:"Er war mein Chef.",pre:"",suf:" mi jefe.",a:"ERA",opts:["ERA","FUE","ESTABA","ESTUVE"],ex:"ERA → dauerhafte Rolle, kein Ende."},
-  {de:"Als Kind war sie sehr ordentlich.",pre:"De niña, ",suf:" muy ordenada.",a:"ERA",opts:["ERA","FUE","ESTABA","ESTUVE"],ex:"ERA → de niña (als Kind) = Dauereigenschaft."},
-  {de:"Es war spät, als ich ankam.",pre:"Cuando llegué, ",suf:" tarde.",a:"ERA",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"ERA → Hintergrundbeschreibung der Situation."},
-  {de:"Es war sehr schwierig.",pre:"",suf:" muy difícil.",a:"ERA",opts:["ERA","FUE","ESTABA","ESTUVE"],ex:"ERA → generelle Beschreibung ohne Zeitrahmen."},
-  {de:"Sie war immer sehr pünktlich.",pre:"Siempre ",suf:" muy puntual.",a:"ERA",opts:["ERA","FUE","ESTABA","ESTUVE"],ex:"ERA → siempre (immer) = Dauereigenschaft."},
-  {de:"Das Büro war früher viel kleiner.",pre:"Antes la oficina ",suf:" mucho más pequeña.",a:"ERA",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"ERA → antes + generelle Beschreibung."},
-  {de:"Der Job war generell sehr anstrengend.",pre:"El trabajo ",suf:" muy agotador.",a:"ERA",opts:["ERA","FUE","ESTABA","ESTUVE"],ex:"ERA → dauerhafter genereller Zustand."},
-  {de:"Es war eine schwierige Zeit.",pre:"",suf:" una época difícil.",a:"ERA",opts:["ERA","FUE","ESTABA","ESTUVE"],ex:"ERA → generelle Beschreibung einer Periode."},
-  {de:"Sie war normalerweise sehr ruhig.",pre:"Normalmente ",suf:" muy tranquila.",a:"ERA",opts:["ERA","FUE","ESTABA","ESTUVE"],ex:"ERA → normalmente = typische Eigenschaft."},
-  {de:"Als das Telefon klingelte, war ich in einer Besprechung.",pre:"Cuando sonó el teléfono, ",suf:" en una reunión.",a:"ESTABA",opts:["ERA","ESTABA","ESTUVE","FUI"],ex:"ESTABA → Hintergrundzustand, unterbrochen vom Klingeln."},
-  {de:"Das Büro war schon leer, als ich ankam.",pre:"Cuando llegué, la oficina ya ",suf:" vacía.",a:"ESTABA",opts:["ERA","ESTABA","ESTUVE","FUE"],ex:"ESTABA → Zustand in dem Moment, Hintergrund."},
-  {de:"Am Anfang war ich noch nicht dort.",pre:"Al principio no ",suf:" allí.",a:"ESTABA",opts:["ERA","ESTABA","ESTUVE","FUE"],ex:"ESTABA → andauernder Hintergrundzustand."},
-  {de:"Wo warst du? Ich hab dich gesucht!",pre:"¿Dónde ",suf:"? ¡Te buscaba!",a:"ESTABAS",opts:["ESTABAS","ESTUVISTE","ERAS","FUISTE"],ex:"ESTABAS → du-Form von ESTABA. Frage nach anhaltendem Zustand."},
-  {de:"Als du anriefst, war ich zuhause.",pre:"Cuando llamaste, ",suf:" en casa.",a:"ESTABA",opts:["ERA","ESTABA","ESTUVE","FUI"],ex:"ESTABA → Hintergrund (war gerade zuhause)."},
-  {de:"Das Wetter war damals sehr schön.",pre:"El tiempo ",suf:" muy bueno entonces.",a:"ESTABA",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"ESTABA → vorübergehender Zustand in dem Moment."},
-  {de:"Während der Sitzung war sie sehr nervös.",pre:"Durante la reunión ",suf:" muy nerviosa.",a:"ESTABA",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"ESTABA → vorübergehender Zustand während eines Moments."},
-  {de:"Er war müde, als er ankam.",pre:"Cuando llegó, ",suf:" cansado.",a:"ESTABA",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"ESTABA → Zustand (müde) in dem Moment – Hintergrund."},
-  {de:"Das Fenster war offen.",pre:"La ventana ",suf:" abierta.",a:"ESTABA",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"ESTABA → Zustand eines Objekts in einem Moment."},
-  {de:"Ich war gerade am Kochen, als sie klingelte.",pre:"",suf:" cocinando cuando ella llegó.",a:"ESTABA",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"ESTABA + Gerundio = war gerade dabei (Hintergrund)."},
-  {de:"Letzte Woche war ich beim Arzt.",pre:"La semana pasada ",suf:" en el médico.",a:"ESTUVE",opts:["ESTABA","ESTUVE","FUI","ERA"],ex:"ESTUVE → Ort + abgeschlossener Zeitraum."},
-  {de:"Ich war nur kurz im Büro.",pre:"",suf:" solo un momento en la oficina.",a:"ESTUVE",opts:["ESTABA","ESTUVE","FUI","ERA"],ex:"ESTUVE → solo un momento = klar begrenzter Aufenthalt."},
-  {de:"Warst du gestern auf der Party?",pre:"¿",suf:" ayer en la fiesta?",a:"ESTUVISTE",opts:["ESTABAS","ESTUVISTE","FUISTE","ERAS"],ex:"ESTUVISTE → du-Form, abgeschlossener Besuch."},
-  {de:"Ich war den ganzen Tag am Arbeiten.",pre:"",suf:" todo el día trabajando.",a:"ESTUVE",opts:["ESTABA","ESTUVE","FUI","ERA"],ex:"ESTUVE → todo el día = klarer abgeschlossener Zeitraum."},
-  {de:"Während des Gesprächs war ich ruhig.",pre:"Durante la conversación ",suf:" tranquila.",a:"ESTUVE",opts:["ESTABA","ESTUVE","ERA","FUE"],ex:"ESTUVE → während dieses konkreten, abgeschlossenen Gesprächs."},
-  {de:"Ich war letzten Sommer in Hamburg.",pre:"El verano pasado ",suf:" en Hamburgo.",a:"ESTUVE",opts:["ESTABA","ESTUVE","FUI","ERA"],ex:"ESTUVE → Ort + klar abgeschlossener Zeitraum."},
-  {de:"Sie war zwei Stunden beim Friseur.",pre:"",suf:" dos horas en la peluquería.",a:"ESTUVO",opts:["ESTABA","ESTUVO","FUE","ERA"],ex:"ESTUVO (3. Person) → zwei Stunden = begrenzter Zeitraum."},
-  {de:"Ich war gestern Abend zuhause.",pre:"Ayer por la noche ",suf:" en casa.",a:"ESTUVE",opts:["ESTABA","ESTUVE","FUI","ERA"],ex:"ESTUVE → ayer por la noche = abgeschlossener Zeitraum."},
-  {de:"Wir waren drei Tage auf Teneriffa.",pre:"",suf:" tres días en Tenerife.",a:"ESTUVIMOS",opts:["ESTÁBAMOS","ESTUVIMOS","FUIMOS","ÉRAMOS"],ex:"ESTUVIMOS → drei Tage = klar abgeschlossener Zeitraum."},
-  {de:"Er war eine Woche krank.",pre:"",suf:" una semana enfermo.",a:"ESTUVO",opts:["ESTABA","ESTUVO","FUE","ERA"],ex:"ESTUVO → una semana = klar begrenzter Zeitraum."},
-  {de:"Ich war gestern einkaufen.",pre:"Ayer ",suf:" de compras.",a:"FUI",opts:["ERA","ESTABA","ESTUVE","FUI"],ex:"FUI (von IR) → Aktion, Bewegung, abgeschlossen."},
-  {de:"Ich war das nicht!",pre:"¡No ",suf:" yo!",a:"FUI",opts:["ERA","FUE","ESTUVE","FUI"],ex:"FUI (von SER) → Identität, abgeschlossen."},
-  {de:"Ich war gestern beim Arzt.",pre:"Ayer ",suf:" al médico.",a:"FUI",opts:["ERA","ESTABA","ESTUVE","FUI"],ex:"FUI (von IR) → Bewegung zum Arzt, abgeschlossen."},
-  {de:"Bist du gestern zur Arbeit gegangen?",pre:"¿",suf:" ayer al trabajo?",a:"FUISTE",opts:["ESTUVISTE","FUISTE","ERAS","IBAS"],ex:"FUISTE (von IR, du-Form) → Bewegung, abgeschlossen."},
-  {de:"Ich war am Sonntag am Strand.",pre:"El domingo ",suf:" a la playa.",a:"FUI",opts:["ERA","ESTABA","ESTUVE","FUI"],ex:"FUI (von IR) → Bewegung zum Strand, abgeschlossen."},
-  {de:"Wir sind gestern ins Restaurant gegangen.",pre:"Ayer ",suf:" al restaurante.",a:"FUIMOS",opts:["ESTUVIMOS","FUIMOS","ÉRAMOS","ESTÁBAMOS"],ex:"FUIMOS (von IR) → gemeinsame Aktion, abgeschlossen."},
-  {de:"Sie ging letzte Woche zum Supermarkt.",pre:"La semana pasada ",suf:" al supermercado.",a:"FUE",opts:["ESTABA","ESTUVO","FUE","ERA"],ex:"FUE (von IR, 3. Person) → Bewegung, abgeschlossen."},
-  {de:"Ich war auf einer Fortbildung.",pre:"",suf:" a un curso de formación.",a:"FUI",opts:["ERA","ESTABA","ESTUVE","FUI"],ex:"FUI (von IR) → Bewegung, Aktion, abgeschlossen."},
-  {de:"Ich war letzten Monat auf Teneriffa.",pre:"El mes pasado ",suf:" a Tenerife.",a:"FUI",opts:["ERA","ESTABA","ESTUVE","FUI"],ex:"FUI (von IR) → Reise, abgeschlossen."},
-  {de:"Ich war letzte Woche auf einer Messe.",pre:"La semana pasada ",suf:" a una feria.",a:"FUI",opts:["ERA","ESTABA","ESTUVE","FUI"],ex:"FUI (von IR) → Aktion, abgeschlossen."},
-  {de:"Es war ein sehr langer Tag.",pre:"",suf:" un día muy largo.",a:"FUE",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"FUE → dieser eine Tag, abgeschlossen. ERA wäre generell."},
-  {de:"Das Gespräch war unangenehm.",pre:"La conversación ",suf:" incómoda.",a:"FUE",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"FUE → dieses konkrete Gespräch, einmalig und vorbei."},
-  {de:"Das Meeting war um 10 Uhr.",pre:"La reunión ",suf:" a las 10.",a:"FUE",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"FUE → konkreter Zeitpunkt, abgeschlossenes Ereignis."},
-  {de:"Es war ein Fehler.",pre:"",suf:" un error.",a:"FUE",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"FUE → einmaliger, abgeschlossener Fehler."},
-  {de:"Das war sehr schwer für mich.",pre:"",suf:" muy difícil para mí.",a:"FUE",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"FUE → dieser konkrete Moment, nicht generell."},
-  {de:"Die Party war toll!",pre:"¡La fiesta ",suf:" genial!",a:"FUE",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"FUE → diese konkrete Party, einmalig, abgeschlossen."},
-  {de:"Das erste Interview war sehr stressig.",pre:"La primera entrevista ",suf:" muy estresante.",a:"FUE",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"FUE → konkretes Ereignis, abgeschlossen."},
-  {de:"Der erste Tag war komisch.",pre:"El primer día ",suf:" raro.",a:"FUE",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"FUE → dieser eine erste Tag, abgeschlossen."},
-  {de:"Das Wochenende war perfekt.",pre:"El fin de semana ",suf:" perfecto.",a:"FUE",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"FUE → dieses konkrete Wochenende, abgeschlossen."},
-  {de:"Die Reise war wunderschön.",pre:"El viaje ",suf:" precioso.",a:"FUE",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"FUE → diese konkrete Reise, einmalig, abgeschlossen."}
+/* ══════════════════════════════════════
+   QUIZ 1 FRAGEN – ERA/ESTABA/ESTUVE/FUI/FUE
+   cat: "ERA" | "ESTABA" | "ESTUVE" | "FUI" | "FUE"
+══════════════════════════════════════ */
+var Q1=[
+  {de:"Früher war sie sehr schüchtern.",pre:"Antes ",suf:" muy tímida.",a:"ERA",cat:"ERA",opts:["ERA","FUE","ESTABA","ESTUVE"],ex:"ERA → antes + generelle Eigenschaft = Imperfecto."},
+  {de:"Er war mein Chef.",pre:"",suf:" mi jefe.",a:"ERA",cat:"ERA",opts:["ERA","FUE","ESTABA","ESTUVE"],ex:"ERA → dauerhafte Rolle, kein Ende."},
+  {de:"Als Kind war sie sehr ordentlich.",pre:"De niña, ",suf:" muy ordenada.",a:"ERA",cat:"ERA",opts:["ERA","FUE","ESTABA","ESTUVE"],ex:"ERA → de niña = Dauereigenschaft."},
+  {de:"Es war spät, als ich ankam.",pre:"Cuando llegué, ",suf:" tarde.",a:"ERA",cat:"ERA",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"ERA → Hintergrundbeschreibung."},
+  {de:"Es war generell sehr schwierig.",pre:"",suf:" muy difícil.",a:"ERA",cat:"ERA",opts:["ERA","FUE","ESTABA","ESTUVE"],ex:"ERA → generelle Beschreibung ohne Zeitrahmen."},
+  {de:"Sie war immer sehr pünktlich.",pre:"Siempre ",suf:" muy puntual.",a:"ERA",cat:"ERA",opts:["ERA","FUE","ESTABA","ESTUVE"],ex:"ERA → siempre = Dauereigenschaft."},
+  {de:"Das Büro war früher viel kleiner.",pre:"Antes la oficina ",suf:" mucho más pequeña.",a:"ERA",cat:"ERA",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"ERA → antes + generelle Beschreibung."},
+  {de:"Es war eine schwierige Zeit.",pre:"",suf:" una época difícil.",a:"ERA",cat:"ERA",opts:["ERA","FUE","ESTABA","ESTUVE"],ex:"ERA → generelle Beschreibung einer Periode."},
+  {de:"Sie war normalerweise sehr ruhig.",pre:"Normalmente ",suf:" muy tranquila.",a:"ERA",cat:"ERA",opts:["ERA","FUE","ESTABA","ESTUVE"],ex:"ERA → normalmente = typische Eigenschaft."},
+  {de:"Der Job war generell sehr anstrengend.",pre:"El trabajo ",suf:" muy agotador.",a:"ERA",cat:"ERA",opts:["ERA","FUE","ESTABA","ESTUVE"],ex:"ERA → dauerhafter genereller Zustand."},
+  {de:"Als das Telefon klingelte, war ich in einer Besprechung.",pre:"Cuando sonó el teléfono, ",suf:" en una reunión.",a:"ESTABA",cat:"ESTABA",opts:["ERA","ESTABA","ESTUVE","FUI"],ex:"ESTABA → Hintergrundzustand, unterbrochen."},
+  {de:"Das Büro war schon leer, als ich ankam.",pre:"Cuando llegué, la oficina ya ",suf:" vacía.",a:"ESTABA",cat:"ESTABA",opts:["ERA","ESTABA","ESTUVE","FUE"],ex:"ESTABA → Zustand in dem Moment, Hintergrund."},
+  {de:"Am Anfang war ich noch nicht dort.",pre:"Al principio no ",suf:" allí.",a:"ESTABA",cat:"ESTABA",opts:["ERA","ESTABA","ESTUVE","FUE"],ex:"ESTABA → andauernder Hintergrundzustand."},
+  {de:"Wo warst du? Ich hab dich gesucht!",pre:"¿Dónde ",suf:"? ¡Te buscaba!",a:"ESTABAS",cat:"ESTABA",opts:["ESTABAS","ESTUVISTE","ERAS","FUISTE"],ex:"ESTABAS → du-Form von ESTABA."},
+  {de:"Als du anriefst, war ich zuhause.",pre:"Cuando llamaste, ",suf:" en casa.",a:"ESTABA",cat:"ESTABA",opts:["ERA","ESTABA","ESTUVE","FUI"],ex:"ESTABA → Hintergrund (war gerade zuhause)."},
+  {de:"Das Wetter war damals sehr schön.",pre:"El tiempo ",suf:" muy bueno entonces.",a:"ESTABA",cat:"ESTABA",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"ESTABA → vorübergehender Zustand in dem Moment."},
+  {de:"Er war müde, als er ankam.",pre:"Cuando llegó, ",suf:" cansado.",a:"ESTABA",cat:"ESTABA",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"ESTABA → Zustand (müde) in dem Moment."},
+  {de:"Das Fenster war offen.",pre:"La ventana ",suf:" abierta.",a:"ESTABA",cat:"ESTABA",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"ESTABA → Zustand eines Objekts in einem Moment."},
+  {de:"Ich war gerade am Kochen, als sie klingelte.",pre:"",suf:" cocinando cuando ella llegó.",a:"ESTABA",cat:"ESTABA",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"ESTABA + Gerundio = war gerade dabei."},
+  {de:"Während der Sitzung war sie sehr nervös.",pre:"Durante la reunión ",suf:" muy nerviosa.",a:"ESTABA",cat:"ESTABA",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"ESTABA → vorübergehender Zustand während eines Moments."},
+  {de:"Letzte Woche war ich beim Arzt.",pre:"La semana pasada ",suf:" en el médico.",a:"ESTUVE",cat:"ESTUVE",opts:["ESTABA","ESTUVE","FUI","ERA"],ex:"ESTUVE → Ort + abgeschlossener Zeitraum."},
+  {de:"Ich war nur kurz im Büro.",pre:"",suf:" solo un momento en la oficina.",a:"ESTUVE",cat:"ESTUVE",opts:["ESTABA","ESTUVE","FUI","ERA"],ex:"ESTUVE → solo un momento = klar begrenzter Aufenthalt."},
+  {de:"Warst du gestern auf der Party?",pre:"¿",suf:" ayer en la fiesta?",a:"ESTUVISTE",cat:"ESTUVE",opts:["ESTABAS","ESTUVISTE","FUISTE","ERAS"],ex:"ESTUVISTE → du-Form, abgeschlossener Besuch."},
+  {de:"Ich war den ganzen Tag am Arbeiten.",pre:"",suf:" todo el día trabajando.",a:"ESTUVE",cat:"ESTUVE",opts:["ESTABA","ESTUVE","FUI","ERA"],ex:"ESTUVE → todo el día = abgeschlossener Zeitraum."},
+  {de:"Während des Gesprächs war ich ruhig.",pre:"Durante la conversación ",suf:" tranquila.",a:"ESTUVE",cat:"ESTUVE",opts:["ESTABA","ESTUVE","ERA","FUE"],ex:"ESTUVE → während dieses konkreten, abgeschlossenen Gesprächs."},
+  {de:"Ich war letzten Sommer in Hamburg.",pre:"El verano pasado ",suf:" en Hamburgo.",a:"ESTUVE",cat:"ESTUVE",opts:["ESTABA","ESTUVE","FUI","ERA"],ex:"ESTUVE → Ort + klar abgeschlossener Zeitraum."},
+  {de:"Sie war zwei Stunden beim Friseur.",pre:"",suf:" dos horas en la peluquería.",a:"ESTUVO",cat:"ESTUVE",opts:["ESTABA","ESTUVO","FUE","ERA"],ex:"ESTUVO (3. Person) → zwei Stunden = begrenzter Zeitraum."},
+  {de:"Ich war gestern Abend zuhause.",pre:"Ayer por la noche ",suf:" en casa.",a:"ESTUVE",cat:"ESTUVE",opts:["ESTABA","ESTUVE","FUI","ERA"],ex:"ESTUVE → ayer por la noche = abgeschlossener Zeitraum."},
+  {de:"Wir waren drei Tage auf Teneriffa.",pre:"",suf:" tres días en Tenerife.",a:"ESTUVIMOS",cat:"ESTUVE",opts:["ESTÁBAMOS","ESTUVIMOS","FUIMOS","ÉRAMOS"],ex:"ESTUVIMOS → drei Tage = abgeschlossener Zeitraum."},
+  {de:"Er war eine Woche krank.",pre:"",suf:" una semana enfermo.",a:"ESTUVO",cat:"ESTUVE",opts:["ESTABA","ESTUVO","FUE","ERA"],ex:"ESTUVO → una semana = klar begrenzter Zeitraum."},
+  {de:"Ich war gestern einkaufen.",pre:"Ayer ",suf:" de compras.",a:"FUI",cat:"FUI",opts:["ERA","ESTABA","ESTUVE","FUI"],ex:"FUI (von IR) → Aktion, abgeschlossen."},
+  {de:"Ich war das nicht!",pre:"¡No ",suf:" yo!",a:"FUI",cat:"FUI",opts:["ERA","FUE","ESTUVE","FUI"],ex:"FUI (von SER) → Identität, abgeschlossen."},
+  {de:"Ich war gestern beim Arzt.",pre:"Ayer ",suf:" al médico.",a:"FUI",cat:"FUI",opts:["ERA","ESTABA","ESTUVE","FUI"],ex:"FUI (von IR) → Bewegung zum Arzt, abgeschlossen."},
+  {de:"Bist du gestern zur Arbeit gegangen?",pre:"¿",suf:" ayer al trabajo?",a:"FUISTE",cat:"FUI",opts:["ESTUVISTE","FUISTE","ERAS","IBAS"],ex:"FUISTE (von IR, du-Form) → Bewegung, abgeschlossen."},
+  {de:"Ich war am Sonntag am Strand.",pre:"El domingo ",suf:" a la playa.",a:"FUI",cat:"FUI",opts:["ERA","ESTABA","ESTUVE","FUI"],ex:"FUI (von IR) → Bewegung zum Strand, abgeschlossen."},
+  {de:"Wir sind gestern ins Restaurant gegangen.",pre:"Ayer ",suf:" al restaurante.",a:"FUIMOS",cat:"FUI",opts:["ESTUVIMOS","FUIMOS","ÉRAMOS","ESTÁBAMOS"],ex:"FUIMOS (von IR) → Aktion, abgeschlossen."},
+  {de:"Ich war auf einer Fortbildung.",pre:"",suf:" a un curso de formación.",a:"FUI",cat:"FUI",opts:["ERA","ESTABA","ESTUVE","FUI"],ex:"FUI (von IR) → Bewegung, abgeschlossen."},
+  {de:"Ich war letzten Monat auf Teneriffa.",pre:"El mes pasado ",suf:" a Tenerife.",a:"FUI",cat:"FUI",opts:["ERA","ESTABA","ESTUVE","FUI"],ex:"FUI (von IR) → Reise, abgeschlossen."},
+  {de:"Ich war letzte Woche auf einer Messe.",pre:"La semana pasada ",suf:" a una feria.",a:"FUI",cat:"FUI",opts:["ERA","ESTABA","ESTUVE","FUI"],ex:"FUI (von IR) → Aktion, abgeschlossen."},
+  {de:"Sie ging letzte Woche zum Supermarkt.",pre:"La semana pasada ",suf:" al supermercado.",a:"FUE",cat:"FUE",opts:["ESTABA","ESTUVO","FUE","ERA"],ex:"FUE (von IR, 3. Person) → Bewegung, abgeschlossen."},
+  {de:"Es war ein sehr langer Tag.",pre:"",suf:" un día muy largo.",a:"FUE",cat:"FUE",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"FUE → dieser eine Tag, abgeschlossen. ERA wäre generell."},
+  {de:"Das Gespräch war unangenehm.",pre:"La conversación ",suf:" incómoda.",a:"FUE",cat:"FUE",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"FUE → konkretes Gespräch, einmalig und vorbei."},
+  {de:"Das Meeting war um 10 Uhr.",pre:"La reunión ",suf:" a las 10.",a:"FUE",cat:"FUE",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"FUE → konkreter Zeitpunkt, abgeschlossenes Ereignis."},
+  {de:"Es war ein Fehler.",pre:"",suf:" un error.",a:"FUE",cat:"FUE",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"FUE → einmaliger, abgeschlossener Fehler."},
+  {de:"Die Party war toll!",pre:"¡La fiesta ",suf:" genial!",a:"FUE",cat:"FUE",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"FUE → diese konkrete Party, abgeschlossen."},
+  {de:"Das erste Interview war sehr stressig.",pre:"La primera entrevista ",suf:" muy estresante.",a:"FUE",cat:"FUE",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"FUE → konkretes Ereignis, abgeschlossen."},
+  {de:"Der erste Tag war komisch.",pre:"El primer día ",suf:" raro.",a:"FUE",cat:"FUE",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"FUE → dieser eine erste Tag, abgeschlossen."},
+  {de:"Das Wochenende war perfekt.",pre:"El fin de semana ",suf:" perfecto.",a:"FUE",cat:"FUE",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"FUE → dieses konkrete Wochenende, abgeschlossen."},
+  {de:"Die Reise war wunderschön.",pre:"El viaje ",suf:" precioso.",a:"FUE",cat:"FUE",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"FUE → diese konkrete Reise, abgeschlossen."},
+  {de:"Das war sehr schwer für mich.",pre:"",suf:" muy difícil para mí.",a:"FUE",cat:"FUE",opts:["ERA","ESTABA","FUE","ESTUVE"],ex:"FUE → dieser konkrete Moment, nicht generell."}
 ];
 
-var qs=[],ans=0,cor=0,given={};
+/* ══════════════════════════════════════
+   QUIZ 2 FRAGEN – HABÍA / HUBO / HABÍA+IDO
+   cat: "HABÍA" | "HUBO" | "PLUSCUAM"
+══════════════════════════════════════ */
+var Q2=[
+  {de:"Es gab viele Leute im Büro.",pre:"",suf:" mucha gente en la oficina.",a:"HABÍA",cat:"HABÍA",opts:["HABÍA","HUBO","HABÍA HABIDO","HUBO SIDO"],ex:"HABÍA → Hintergrund, genereller Zustand (nicht ein konkretes Ereignis)."},
+  {de:"Es gab keine Zeit für alles.",pre:"No ",suf:" tiempo para todo.",a:"HABÍA",cat:"HABÍA",opts:["HABÍA","HUBO","ERA","FUE"],ex:"HABÍA → dauerhafter Hintergrundzustand."},
+  {de:"Es gab ein Problem mit dem System.",pre:"",suf:" un problema con el sistema.",a:"HABÍA",cat:"HABÍA",opts:["HABÍA","HUBO","ERA","FUE"],ex:"HABÍA → allgemeiner Zustand (Hintergrund), kein konkretes Ereignis."},
+  {de:"Früher gab es mehr Arbeit.",pre:"Antes ",suf:" más trabajo.",a:"HABÍA",cat:"HABÍA",opts:["HABÍA","HUBO","ERA","FUE"],ex:"HABÍA → antes + genereller Zustand = Imperfecto."},
+  {de:"Es war viel Lärm, als ich ankam.",pre:"",suf:" mucho ruido cuando llegué.",a:"HABÍA",cat:"HABÍA",opts:["HABÍA","HUBO","ESTABA","FUE"],ex:"HABÍA → Hintergrundzustand als ich ankam."},
+  {de:"Es gab immer viele Fragen.",pre:"Siempre ",suf:" muchas preguntas.",a:"HABÍA",cat:"HABÍA",opts:["HABÍA","HUBO","ERA","FUE"],ex:"HABÍA → siempre + genereller Zustand."},
+  {de:"In dem Büro gab es keinen Drucker.",pre:"En esa oficina no ",suf:" impresora.",a:"HABÍA",cat:"HABÍA",opts:["HABÍA","HUBO","ERA","ESTABA"],ex:"HABÍA → genereller Zustand (kein Drucker vorhanden)."},
+  {de:"Es gab viele Möglichkeiten damals.",pre:"",suf:" muchas posibilidades entonces.",a:"HABÍA",cat:"HABÍA",opts:["HABÍA","HUBO","ERA","FUE"],ex:"HABÍA → entonces + genereller Hintergrundszustand."},
+  {de:"Es gab wenig Kommunikation im Team.",pre:"",suf:" poca comunicación en el equipo.",a:"HABÍA",cat:"HABÍA",opts:["HABÍA","HUBO","ERA","FUE"],ex:"HABÍA → genereller Zustand im Team."},
+  {de:"Es gab viele Regeln im alten Job.",pre:"",suf:" muchas reglas en el trabajo anterior.",a:"HABÍA",cat:"HABÍA",opts:["HABÍA","HUBO","ERA","FUE"],ex:"HABÍA → genereller dauerhafter Zustand."},
+  {de:"Es gab einen Unfall auf der Autobahn.",pre:"",suf:" un accidente en la autopista.",a:"HUBO",cat:"HUBO",opts:["HABÍA","HUBO","FUE","ERA"],ex:"HUBO → konkretes einmaliges Ereignis, abgeschlossen."},
+  {de:"Es gab ein Notfall-Meeting.",pre:"",suf:" una reunión de emergencia.",a:"HUBO",cat:"HUBO",opts:["HABÍA","HUBO","FUE","ERA"],ex:"HUBO → konkretes Ereignis, einmalig."},
+  {de:"Gestern gab es ein Gewitter.",pre:"Ayer ",suf:" una tormenta.",a:"HUBO",cat:"HUBO",opts:["HABÍA","HUBO","FUE","ERA"],ex:"HUBO → ayer + konkretes Ereignis = Indefinido."},
+  {de:"An diesem Tag gab es viele Probleme.",pre:"Ese día ",suf:" muchos problemas.",a:"HUBO",cat:"HUBO",opts:["HABÍA","HUBO","FUE","ERA"],ex:"HUBO → ese día = spezifischer Tag, einmaliges Ereignis."},
+  {de:"Es gab eine Planänderung.",pre:"",suf:" un cambio de planes.",a:"HUBO",cat:"HUBO",opts:["HABÍA","HUBO","FUE","ERA"],ex:"HUBO → konkretes einmaliges Ereignis."},
+  {de:"Letzten Montag gab es einen Stromausfall.",pre:"El lunes pasado ",suf:" un apagón.",a:"HUBO",cat:"HUBO",opts:["HABÍA","HUBO","FUE","ERA"],ex:"HUBO → el lunes pasado = spezifischer Zeitpunkt."},
+  {de:"Es gab einen Fehler im Dokument.",pre:"",suf:" un error en el documento.",a:"HUBO",cat:"HUBO",opts:["HABÍA","HUBO","FUE","ERA"],ex:"HUBO → konkreter einmaliger Fehler."},
+  {de:"Es gab gestern eine Überraschung.",pre:"Ayer ",suf:" una sorpresa.",a:"HUBO",cat:"HUBO",opts:["HABÍA","HUBO","FUE","ERA"],ex:"HUBO → ayer + konkretes Ereignis."},
+  {de:"Bei dem Meeting gab es einen Konflikt.",pre:"En esa reunión ",suf:" un conflicto.",a:"HUBO",cat:"HUBO",opts:["HABÍA","HUBO","FUE","ERA"],ex:"HUBO → en esa reunión = konkretes spezifisches Ereignis."},
+  {de:"Es gab letzte Woche einen wichtigen Anruf.",pre:"La semana pasada ",suf:" una llamada importante.",a:"HUBO",cat:"HUBO",opts:["HABÍA","HUBO","FUE","ERA"],ex:"HUBO → la semana pasada + konkretes Ereignis."},
+  {de:"Als ich ankam, war sie schon gegangen.",pre:"Cuando llegué, ella ya se ",suf:".",a:"HABÍA IDO",cat:"PLUSCUAM",opts:["HABÍA IDO","FUE","ESTABA","IBA"],ex:"HABÍA IDO → Vorvergangenheit: das Gehen war vor dem Ankommen."},
+  {de:"Ich hatte vor dem Meeting nichts gegessen.",pre:"No ",suf:" nada antes de la reunión.",a:"HABÍA COMIDO",cat:"PLUSCUAM",opts:["HABÍA COMIDO","COMÍ","ESTABA COMIENDO","COMÍA"],ex:"HABÍA COMIDO → Vorvergangenheit: vor dem Meeting = davor."},
+  {de:"Ich hatte die E-Mail schon geschickt, als er anrief.",pre:"Ya ",suf:" el correo cuando me llamó.",a:"HABÍA ENVIADO",cat:"PLUSCUAM",opts:["HABÍA ENVIADO","ENVIÉ","ENVIABA","FUI A ENVIAR"],ex:"HABÍA ENVIADO → schon geschickt bevor er anrief."},
+  {de:"Ich hatte noch nie in einer Asesoría gearbeitet.",pre:"Nunca ",suf:" en una asesoría.",a:"HABÍA TRABAJADO",cat:"PLUSCUAM",opts:["HABÍA TRABAJADO","TRABAJÉ","TRABAJABA","FUI A TRABAJAR"],ex:"HABÍA TRABAJADO → nunca + Vorvergangenheit = Erfahrung bis zu dem Moment."},
+  {de:"Der Kunde hatte dreimal angerufen.",pre:"El cliente ",suf:" tres veces.",a:"HABÍA LLAMADO",cat:"PLUSCUAM",opts:["HABÍA LLAMADO","LLAMÓ","LLAMABA","FUE A LLAMAR"],ex:"HABÍA LLAMADO → dreimal vorher angerufen (Vorvergangenheit)."},
+  {de:"Sie hatte das Dokument schon unterschrieben.",pre:"Ella ya ",suf:" el documento.",a:"HABÍA FIRMADO",cat:"PLUSCUAM",opts:["HABÍA FIRMADO","FIRMÓ","FIRMABA","IBA A FIRMAR"],ex:"HABÍA FIRMADO → ya + Vorvergangenheit = schon davor."},
+  {de:"Ich hatte es noch nie gesehen.",pre:"Nunca lo ",suf:".",a:"HABÍA VISTO",cat:"PLUSCUAM",opts:["HABÍA VISTO","VI","VEÍA","FUI A VER"],ex:"HABÍA VISTO → visto ist unregelmäßig! Nunca + Vorvergangenheit."},
+  {de:"Er hatte die Aufgabe schon erledigt.",pre:"Él ya ",suf:" la tarea.",a:"HABÍA HECHO",cat:"PLUSCUAM",opts:["HABÍA HECHO","HIZO","HACÍA","FUE A HACER"],ex:"HABÍA HECHO → hecho ist unregelmäßig! Vorvergangenheit."},
+  {de:"Als wir ankamen, hatte das Meeting schon begonnen.",pre:"Cuando llegamos, la reunión ya ",suf:".",a:"HABÍA EMPEZADO",cat:"PLUSCUAM",opts:["HABÍA EMPEZADO","EMPEZÓ","EMPEZABA","IBA A EMPEZAR"],ex:"HABÍA EMPEZADO → Vorvergangenheit: Meeting begann vor unserer Ankunft."},
+  {de:"Sie hatte es mir schon erklärt.",pre:"Ya me lo ",suf:".",a:"HABÍA EXPLICADO",cat:"PLUSCUAM",opts:["HABÍA EXPLICADO","EXPLICÓ","EXPLICABA","FUE A EXPLICAR"],ex:"HABÍA EXPLICADO → ya + Vorvergangenheit = schon davor erklärt."},
+  {de:"Es gab viele Kollegen, die früher dort arbeiteten.",pre:"",suf:" muchos compañeros que antes trabajaban allí.",a:"HABÍA",cat:"HABÍA",opts:["HABÍA","HUBO","ERA","FUE"],ex:"HABÍA → genereller Hintergrundzustand."},
+  {de:"Es gab plötzlich einen Alarm.",pre:"De repente ",suf:" una alarma.",a:"HUBO",cat:"HUBO",opts:["HABÍA","HUBO","FUE","ERA"],ex:"HUBO → de repente + konkretes plötzliches Ereignis."},
+  {de:"Sie hatte nie Zeit gehabt zu lernen.",pre:"Ella nunca ",suf:" tiempo para estudiar.",a:"HABÍA TENIDO",cat:"PLUSCUAM",opts:["HABÍA TENIDO","TUVO","TENÍA","FUE A TENER"],ex:"HABÍA TENIDO → tenido ist Partizip von tener. Vorvergangenheit."},
+  {de:"Es gab täglich Meetings.",pre:"",suf:" reuniones todos los días.",a:"HABÍA",cat:"HABÍA",opts:["HABÍA","HUBO","ERA","FUE"],ex:"HABÍA → todos los días = täglich, genereller Zustand."},
+  {de:"Letztes Jahr gab es eine große Veränderung.",pre:"El año pasado ",suf:" un gran cambio.",a:"HUBO",cat:"HUBO",opts:["HABÍA","HUBO","FUE","ERA"],ex:"HUBO → el año pasado + konkretes Ereignis = Indefinido."},
+  {de:"Ich hatte das Formular schon ausgefüllt.",pre:"Ya ",suf:" el formulario.",a:"HABÍA RELLENADO",cat:"PLUSCUAM",opts:["HABÍA RELLENADO","RELLENÉ","RELLENABA","FUI A RELLENAR"],ex:"HABÍA RELLENADO → ya + Vorvergangenheit."},
+  {de:"Als er anrief, hatte ich schon gegessen.",pre:"Cuando llamó, ya ",suf:".",a:"HABÍA COMIDO",cat:"PLUSCUAM",opts:["HABÍA COMIDO","COMÍ","ESTABA COMIENDO","COMÍA"],ex:"HABÍA COMIDO → Essen war vor dem Anruf → Vorvergangenheit."},
+  {de:"Es gab in dem Moment keine Lösung.",pre:"En ese momento no ",suf:" solución.",a:"HABÍA",cat:"HABÍA",opts:["HABÍA","HUBO","ERA","FUE"],ex:"HABÍA → en ese momento = Hintergrundzustand in einem Moment."},
+  {de:"Es gab bei der Feier einen besonderen Moment.",pre:"En la celebración ",suf:" un momento especial.",a:"HUBO",cat:"HUBO",opts:["HABÍA","HUBO","FUE","ERA"],ex:"HUBO → en la celebración = konkretes Ereignis."},
+  {de:"Ich hatte die Antwort schon gewusst.",pre:"Ya ",suf:" la respuesta.",a:"HABÍA SABIDO",cat:"PLUSCUAM",opts:["HABÍA SABIDO","SUPE","SABÍA","FUI A SABER"],ex:"HABÍA SABIDO → ya + Vorvergangenheit."},
+  {de:"Sie hatte das Problem schon gelöst, als ich ankam.",pre:"Ella ya ",suf:" el problema cuando llegué.",a:"HABÍA RESUELTO",cat:"PLUSCUAM",opts:["HABÍA RESUELTO","RESOLVIÓ","RESOLVÍA","IBA A RESOLVER"],ex:"HABÍA RESUELTO → resuelto ist unregelmäßig! Vorvergangenheit."},
+  {de:"Es gab normalmente einen langen Stau.",pre:"Normalmente ",suf:" mucho tráfico.",a:"HABÍA",cat:"HABÍA",opts:["HABÍA","HUBO","ERA","FUE"],ex:"HABÍA → normalmente + genereller Zustand."},
+  {de:"Es gab am Freitag eine Überraschungsinspektion.",pre:"El viernes ",suf:" una inspección sorpresa.",a:"HUBO",cat:"HUBO",opts:["HABÍA","HUBO","FUE","ERA"],ex:"HUBO → el viernes = konkreter Tag, einmaliges Ereignis."},
+  {de:"Ich hatte ihm schon geschrieben.",pre:"Ya le ",suf:".",a:"HABÍA ESCRITO",cat:"PLUSCUAM",opts:["HABÍA ESCRITO","ESCRIBÍ","ESCRIBÍA","FUI A ESCRIBIR"],ex:"HABÍA ESCRITO → escrito ist unregelmäßig! Vorvergangenheit."},
+  {de:"Als ich aufwachte, hatte es schon geregnet.",pre:"Cuando me desperté, ya ",suf:".",a:"HABÍA LLOVIDO",cat:"PLUSCUAM",opts:["HABÍA LLOVIDO","LLOVIÓ","LLOVÍA","IBA A LLOVER"],ex:"HABÍA LLOVIDO → Regen war vor dem Aufwachen → Vorvergangenheit."},
+  {de:"Es gab immer viel zu tun.",pre:"Siempre ",suf:" mucho que hacer.",a:"HABÍA",cat:"HABÍA",opts:["HABÍA","HUBO","ERA","FUE"],ex:"HABÍA → siempre + genereller Dauerzustand."},
+  {de:"Es gab letzte Nacht einen Brand.",pre:"Anoche ",suf:" un incendio.",a:"HUBO",cat:"HUBO",opts:["HABÍA","HUBO","FUE","ERA"],ex:"HUBO → anoche (letzte Nacht) + konkretes Ereignis."},
+  {de:"Sie hatten nie etwas gesagt.",pre:"Nunca ",suf:" nada.",a:"HABÍAN DICHO",cat:"PLUSCUAM",opts:["HABÍAN DICHO","DIJERON","DECÍAN","FUERON A DECIR"],ex:"HABÍAN DICHO → dicho ist unregelmäßig! Vorvergangenheit, Plural."},
+  {de:"Als ich das Büro betrat, hatte er schon aufgehört.",pre:"Cuando entré, él ya ",suf:".",a:"HABÍA TERMINADO",cat:"PLUSCUAM",opts:["HABÍA TERMINADO","TERMINÓ","TERMINABA","IBA A TERMINAR"],ex:"HABÍA TERMINADO → aufgehört bevor ich eintrat → Vorvergangenheit."},
+  {de:"Es gab zu der Zeit wenig Arbeit.",pre:"En aquella época ",suf:" poco trabajo.",a:"HABÍA",cat:"HABÍA",opts:["HABÍA","HUBO","ERA","FUE"],ex:"HABÍA → en aquella época + genereller Zustand."},
+  {de:"Es gab beim Fest einen Zwischenfall.",pre:"En la fiesta ",suf:" un incidente.",a:"HUBO",cat:"HUBO",opts:["HABÍA","HUBO","FUE","ERA"],ex:"HUBO → en la fiesta = konkretes Ereignis bei einem bestimmten Anlass."}
+];
 
+/* ══ HELPERS ══ */
 function shuf(a){return[...a].sort(function(){return Math.random()-.5})}
 
 function showPg(p){
   document.querySelectorAll('.pg').forEach(function(e){e.classList.remove('on')});
   document.getElementById('pg-'+p).classList.add('on');
-  document.querySelectorAll('.nbtn').forEach(function(b){
-    b.classList.toggle('on',b.textContent.indexOf(p==='learn'?'Lernen':'Quiz')>-1)
-  });
-  if(p==='quiz')startQ();
+  document.querySelectorAll('.nbtn').forEach(function(b){b.classList.remove('on')});
+  var map={'learn1':0,'learn2':1,'quiz1':2,'quiz2':3};
+  document.querySelectorAll('.nbtn')[map[p]].classList.add('on');
+  if(p==='quiz1')startQ1();
+  if(p==='quiz2')startQ2();
   window.scrollTo(0,0);
 }
 
-function startQ(){
-  qs=shuf(QQ).slice(0,10);
-  ans=0;cor=0;given={};
-  var rb=document.getElementById('resbox');
-  rb.classList.remove('on');
-  document.getElementById('qcon').style.display='';
-  upd();
-  renderQ();
+/* ══ QUIZ ENGINE (generic) ══ */
+function makeEngine(questions,pfId,sdId,qconId,resboxId,breakdownId,scoreId,titleId,msgId,emojiId){
+  var qs=[],ans=0,cor=0,given={},catStats={};
+
+  function upd(){
+    var pct=qs.length>0?(ans/qs.length)*100:0;
+    document.getElementById(pfId).style.width=pct+'%';
+    document.getElementById(sdId).textContent=cor+' / '+ans;
+  }
+
+  function render(){
+    var c=document.getElementById(qconId);
+    c.innerHTML='';
+    qs.forEach(function(q,i){
+      var d=document.createElement('div');
+      d.className='qcard'; d.id='qc_'+qconId+i;
+      var sh=q.pre+'<span class="blank" id="bl_'+qconId+i+'">______</span>'+q.suf;
+      d.innerHTML=
+        '<div class="qnum">Frage '+(i+1)+' von '+qs.length+'</div>'+
+        '<div class="qlbl">🇩🇪 Deutsch</div>'+
+        '<div class="qde">'+q.de+'</div>'+
+        '<div class="qlbl2">🇪🇸 Spanisch – füll die Lücke:</div>'+
+        '<div class="qes">'+sh+'</div>'+
+        '<div class="opts" id="op_'+qconId+i+'">'+
+          shuf(q.opts).map(function(o){
+            return '<button class="opt" onclick="eng_'+qconId+'.pick('+i+',\''+o+'\')">'+o+'</button>'
+          }).join('')+
+        '</div>'+
+        '<div class="fb" id="fb_'+qconId+i+'"></div>';
+      c.appendChild(d);
+    });
+  }
+
+  function showRes(){
+    document.getElementById(qconId).style.display='none';
+    var pct=Math.round((cor/qs.length)*100);
+    var em,msg;
+    if(pct===100){em='🏆';msg='¡Perfecto! Kein einziger Fehler!';}
+    else if(pct>=80){em='🎉';msg='Sehr gut! Nur ein paar Fehler – weiter so!';}
+    else if(pct>=60){em='💪';msg='Gut gemacht! Grundregeln sitzen – weiter üben!';}
+    else{em='📚';msg='Nochmal die Lernseite anschauen und dann nochmal versuchen!';}
+    document.getElementById(emojiId).textContent=em;
+    document.getElementById(scoreId).innerHTML='<span>'+cor+'</span> / '+qs.length;
+    document.getElementById(msgId).textContent=msg;
+    document.getElementById(titleId).textContent='Dein Ergebnis';
+
+    /* BREAKDOWN */
+    var bd=document.getElementById(breakdownId);
+    bd.innerHTML='';
+    var cats=Object.keys(catStats).sort();
+    var tips={
+      'ERA':'ERA = generelle Eigenschaft, Rolle, Dauerzustand. Kein klares Ende. → Lernseite Lektion 1',
+      'ESTABA':'ESTABA = Zustand/Ort als Hintergrund in einem Moment. Vorübergehend. → Lektion 1',
+      'ESTUVE':'ESTUVE = Ort/Zustand abgeschlossen. Klarer Zeitraum vorbei. → Lektion 1',
+      'FUI':'FUI = Aktion (IR) oder Identität (SER). Abgeschlossen. → Lektion 1',
+      'FUE':'FUE = Konkretes Ereignis (diesmal so). Abgeschlossen. ERA = immer so. → Lektion 1',
+      'HABÍA':'HABÍA = Es gab (Hintergrund, andauernd). Wie ESTABA aber für Existenz. → Lektion 2',
+      'HUBO':'HUBO = Es gab (einmaliges Ereignis). Wie FUE aber für Existenz. → Lektion 2',
+      'PLUSCUAM':'HABÍA + Partizip = Vorvergangenheit. Etwas passierte BEVOR etwas anderes passierte. → Lektion 2'
+    };
+    var colors={'ERA':'#b08900','ESTABA':'#1a5f7a','ESTUVE':'#1a7a44','FUI':'#884010','FUE':'#5a3a7a','HABÍA':'#6a3a9a','HUBO':'#c05010','PLUSCUAM':'#0d3d52'};
+    cats.forEach(function(cat){
+      var s=catStats[cat];
+      var pct2=Math.round((s.cor/s.tot)*100);
+      var cls=pct2>=80?'score-great':pct2>=50?'score-ok':'score-weak';
+      var tip=tips[cat]||'Weiter üben!';
+      var color=colors[cat]||'#0d3d52';
+      var div=document.createElement('div');
+      div.className='bcard';
+      div.innerHTML=
+        '<div class="bcard-head">'+
+          '<span class="bcard-name">'+cat+'</span>'+
+          '<span class="bcard-score '+cls+'">'+s.cor+' / '+s.tot+' ('+pct2+'%)</span>'+
+        '</div>'+
+        '<div class="bbar-bg"><div class="bbar-fill" style="width:'+pct2+'%;background:'+color+'"></div></div>'+
+        '<div class="bcard-tip">'+
+          (pct2>=80?'✅ <strong>Stark!</strong> Du hast '+cat+' gut drauf.':
+           pct2>=50?'⚠️ <strong>Fast!</strong> Noch ein bisschen üben. '+tip:
+           '❌ <strong>Schwach.</strong> Nochmal durchlesen: '+tip)+
+        '</div>';
+      bd.appendChild(div);
+    });
+
+    document.getElementById(resboxId).classList.add('on');
+  }
+
+  var eng={
+    start:function(){
+      qs=shuf(questions).slice(0,10);
+      ans=0;cor=0;given={};catStats={};
+      qs.forEach(function(q){
+        if(!catStats[q.cat])catStats[q.cat]={cor:0,tot:0};
+        catStats[q.cat].tot++;
+      });
+      document.getElementById(resboxId).classList.remove('on');
+      document.getElementById(qconId).style.display='';
+      upd(); render();
+    },
+    pick:function(i,sel){
+      if(given[i]!==undefined)return;
+      given[i]=sel; ans++;
+      var q=qs[i];
+      var ok=sel===q.a;
+      if(ok){cor++;catStats[q.cat].cor++;}
+      var bl=document.getElementById('bl_'+qconId+i);
+      if(bl)bl.textContent=sel;
+      var card=document.getElementById('qc_'+qconId+i);
+      card.classList.add(ok?'ok':'err');
+      document.querySelectorAll('#op_'+qconId+i+' .opt').forEach(function(b){
+        b.disabled=true;
+        if(b.textContent===sel)b.classList.add(ok?'sok':'serr');
+        if(!ok&&b.textContent===q.a)b.classList.add('sshw');
+      });
+      var fb=document.getElementById('fb_'+qconId+i);
+      fb.className='fb on '+(ok?'fok':'ferr');
+      fb.innerHTML=(ok?'✓ Richtig! ':'✗ Nicht ganz. Richtig: <strong>'+q.a+'</strong> – ')+q.ex;
+      upd();
+      if(ans===qs.length)setTimeout(showRes,1100);
+    }
+  };
+  return eng;
 }
 
-function upd(){
-  var pct=qs.length>0?(ans/qs.length)*100:0;
-  document.getElementById('pf').style.width=pct+'%';
-  document.getElementById('sd').textContent=cor+' / '+ans;
-}
+/* ══ CREATE ENGINES ══ */
+var eng_qcon1=makeEngine(Q1,'pf1','sd1','qcon1','resbox1','breakdown1','resscore1','restitle1','resmsg1','resemoji1');
+var eng_qcon2=makeEngine(Q2,'pf2','sd2','qcon2','resbox2','breakdown2','resscore2','restitle2','resmsg2','resemoji2');
 
-function renderQ(){
-  var c=document.getElementById('qcon');
-  c.innerHTML='';
-  qs.forEach(function(q,i){
-    var d=document.createElement('div');
-    d.className='qcard';
-    d.id='qc'+i;
-    var sh=q.pre+'<span class="blank" id="bl'+i+'">______</span>'+q.suf;
-    d.innerHTML=
-      '<div class="qnum">Frage '+(i+1)+' von '+qs.length+'</div>'+
-      '<div class="qlbl">🇩🇪 Deutsch</div>'+
-      '<div class="qde">'+q.de+'</div>'+
-      '<div class="qlbl2">🇪🇸 Spanisch – füll die Lücke:</div>'+
-      '<div class="qes">'+sh+'</div>'+
-      '<div class="opts" id="op'+i+'">'+
-        shuf(q.opts).map(function(o){
-          return '<button class="opt" onclick="pick('+i+',\''+o+'\')">'+o+'</button>'
-        }).join('')+
-      '</div>'+
-      '<div class="fb" id="fb'+i+'"></div>';
-    c.appendChild(d);
-  });
-}
-
-function pick(i,sel){
-  if(given[i]!==undefined)return;
-  given[i]=sel;ans++;
-  var q=qs[i];
-  var ok=sel===q.a;
-  if(ok)cor++;
-  var bl=document.getElementById('bl'+i);
-  if(bl)bl.textContent=sel;
-  var card=document.getElementById('qc'+i);
-  card.classList.add(ok?'ok':'err');
-  document.querySelectorAll('#op'+i+' .opt').forEach(function(b){
-    b.disabled=true;
-    if(b.textContent===sel)b.classList.add(ok?'sok':'serr');
-    if(!ok&&b.textContent===q.a)b.classList.add('sshw');
-  });
-  var fb=document.getElementById('fb'+i);
-  fb.className='fb on '+(ok?'fok':'ferr');
-  fb.innerHTML=(ok?'✓ Richtig! ':'✗ Nicht ganz. Richtig: <strong>'+q.a+'</strong> – ')+q.ex;
-  upd();
-  if(ans===qs.length)setTimeout(showRes,1100);
-}
-
-function showRes(){
-  document.getElementById('qcon').style.display='none';
-  var pct=Math.round((cor/qs.length)*100);
-  var em,msg;
-  if(pct===100){em='🏆';msg='¡Perfecto! Kein einziger Fehler – du hast das Thema wirklich verstanden!';}
-  else if(pct>=80){em='🎉';msg='Sehr gut! Fast alles richtig – nochmal üben und du hast es!';}
-  else if(pct>=60){em='💪';msg='Gut gemacht! Die Grundregeln sitzen – weiter so!';}
-  else{em='📚';msg='Noch ein bisschen üben! Schau nochmal in die Lernseite.';}
-  document.getElementById('resemoji').textContent=em;
-  document.getElementById('resscore').innerHTML='<span>'+cor+'</span> / '+qs.length;
-  document.getElementById('resmsg').textContent=msg;
-  document.getElementById('resbox').classList.add('on');
-}
+function startQ1(){eng_qcon1.start();}
+function startQ2(){eng_qcon2.start();}
 </script>
 
 </body>
